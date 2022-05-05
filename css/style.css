@@ -18,7 +18,6 @@ h1 {
     color: #901C1C;
     margin-right: 100px;
 }
-
 .logo {
     height: 50px;
     margin-left: 100px;
@@ -47,4 +46,23 @@ h1 {
 .photographer_section article img {
     height: 200px;
     width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.photographer_section article h3 {
+    color: #901C1C;
+    font-size: 14px;
+    margin-top: -30px;
+
+}
+.photographer_section article h4 {
+    color: rgb(78, 77, 77);
+    font-size: 12px;
+    margin-top: -10px;
+  
+}
+.photographer_section article h5{
+    color: rgb(129, 127, 127);
+    font-size: 11px;
+    margin-top: -10px; 
 }
