@@ -17,10 +17,12 @@ header {
 h1 {
     color: #901C1C;
     margin-right: 100px;
+    font-size: 23px;
 }
 .logo {
-    height: 50px;
+    height: 60px;
     margin-left: 100px;
+
 }
 
 .photographer_section {
