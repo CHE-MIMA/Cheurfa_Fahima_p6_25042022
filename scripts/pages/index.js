@@ -1,11 +1,9 @@
 // // recuperation de la  data du json
-   
-let url = "http://127.0.0.1:5500/data/photographers.json";      
-      
+         
 async function getPhotographers(photographers) {
     // remplacement par les données récupérées dans le json
     
-    await fetch(url)
+    await fetch("http://127.0.0.1:5500/data/photographers.json")
 
 .then(function(response) {
      if (response.ok) {
