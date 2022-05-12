@@ -4,7 +4,7 @@ const queryString = window.location.search;
 
 const urlParams = new URLSearchParams(queryString);
 
-const photographerId = urlParams.get("id");
+const idPhotographer = urlParams.get("id");
 async function getPhotographers(photographers) {
     // remplacement par les données récupérées dans le json
     
@@ -25,18 +25,21 @@ async function getPhotographers(photographers) {
     //  retourner le tableau photographers seulement une fois
     return photographers;
 }
+
+
+init();
 async function init() {
-    // Récupère les datas des photographes
+    // Récupère les datas des media
     const photographers  = await getPhotographers();
     console.log(photographers.media);
     let mediatab = []
     for (i=0; i<photographers.media.length; i++) {
-        if(photographers.media[i].photographerId==photographerId){
+        if(photographers.media[i].photographerId==idPhotographer){
             mediatab.push(photographers.media[i])
         }
-
     }
     console.log(mediatab);
 };
 
 init();
+
