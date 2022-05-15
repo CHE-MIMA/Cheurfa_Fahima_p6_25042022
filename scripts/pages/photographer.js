@@ -4,8 +4,12 @@ const queryString = window.location.search;
 
 const urlParams = new URLSearchParams(queryString);
 
-const idPhotographer = urlParams.get("id");
-async function getPhotographers(photographers) {
+ const idPhotographer = urlParams.get("id");
+ 
+
+
+
+ async function getPhotographers(data) {
     // remplacement par les données récupérées dans le json
     
     await fetch("http://127.0.0.1:5500/data/photographers.json")
@@ -16,30 +20,55 @@ async function getPhotographers(photographers) {
      }
  })
  .then(function(value) {
-    photographers = value;
-    console.log(photographers); 
+    data= value;
+    console.log(data); 
 
 })
 .catch(function() {
 })
-    //  retourner le tableau photographers seulement une fois
-    return photographers;
+    //  retourne le tableau photographers seulement une fois
+    return data;
 }
 
+async function displayProfil(myProfilePhotographer) {
+    const photographersHeader = document.querySelector(".photograph-header");
+    const photographer = await myProfilePhotographer;
+    const photographerModel = photographerFactory(photographer);
+    const userHeaderDOM = photographerModel.getUserHeaderDOM();
+    photographersHeader.appendChild(userHeaderDOM);
+    };
 
-init();
+async function displayMedia(medias) {
+    const photographersMedia = document.querySelector(".photograph-media");
+    medias.forEach((media) => {
+    const photographerModel = mediaFactory(media);
+    const userMediaDOM = photographerModel.getUserMediaDOM();
+    photographersMedia.appendChild(userMediaDOM);
+    });
+};
 async function init() {
-    // Récupère les datas des media
-    const photographers  = await getPhotographers();
-    console.log(photographers.media);
+    // Récupère les datas des profils par leurs id
+    const data  = await getPhotographers();
+    const profilePhotograph = data.photographers;
+    const myProfilePhotographer = profilePhotograph.find(element => element.id == idPhotographer);
+     console.log(myProfilePhotographer); 
+     displayProfil(myProfilePhotographer);
+
+
+
+// recupère les datas des médias
+
     let mediatab = []
-    for (i=0; i<photographers.media.length; i++) {
-        if(photographers.media[i].photographerId==idPhotographer){
-            mediatab.push(photographers.media[i])
+    for (i=0; i<data.media.length; i++) {
+        if(data.media[i].photographerId==idPhotographer){
+            mediatab.push(data.media[i])
         }
     }
-    console.log(mediatab);
+    const medias = mediatab;
+    console.log(medias);
+    displayMedia(medias);
 };
-
 init();
+
+
 

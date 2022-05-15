@@ -17,7 +17,7 @@ async function getPhotographers(photographers) {
 })
 .catch(function() {
 })
-    //  retourner le tableau photographers seulement une fois
+    //  retourne le tableau photographers seulement une fois
     return photographers;
 }
 
