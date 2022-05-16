@@ -146,24 +146,41 @@ form input {
     object-fit: cover;
     border-radius: 10px;
 }
-
+.photograph-media__video{
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
 .photograph-media__title{
    font-weight: 400;
-    font-Size: 24px;
+    font-Size: 22px;
    color: #901C1C;
    margin-top: 0px; 
    
   
 }
+.photograph-media__div__liks
+{
+    display: flex;
+    flex-direction: row;
+}
 .photograph-media__liks{
-    font-Size: 22px;
+    font-Size: 20px;
     color: #901C1C;
     font-weight: 500;
-    margin-top: 5px;   
+    margin-top: 5px;
+    margin-right: 10px;
+      
 }
-.i{
-  font-size: 20px;  
-  height: 20px;
-  width: 20px;
-  margin-top: 5px;
+.fa-heart{
+    position: relative;
+    display: block;
+    font-size: 20px;
+    margin-top: 7px;
+    color: #901C1C;
+    margin-right: 50px;
+    
+
+
 }

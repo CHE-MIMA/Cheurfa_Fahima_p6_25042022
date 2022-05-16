@@ -84,11 +84,9 @@ function mediaFactory(media) {
 
   const { photographerId, id, title, image, video, likes, date} = media; 
   const picture = `assets/photos/${image}`;    
- const videos = `assets/photos/${video}}`
+ const videos = `assets/photos/${video}`
 //   if (media.hasOwnProperty('image')) {
-    
-
-   
+  
 // } else if (media.hasOwnProperty('video')) {
 //  
 // };
@@ -98,12 +96,20 @@ function mediaFactory(media) {
       // mediaProfile.classList.add("media__article")
       
       // média du profil
-      const img = document.createElement( 'img' );
-      img.classList.add("photograph-media__picture")
-      img.setAttribute("src", picture)
-      // const video= document.createElement( 'video' );
-      // img.classList.add("photograph-media__video")
-      // img.setAttribute("src", videos)
+     let mediaSplit = null;
+     console.log(title);
+     console.log(videos);
+      if (videos.split('.').slice(-1)[0]=='mp4'){
+       mediaSplit = document.createElement( 'video' );
+      mediaSplit.classList.add("photograph-media__video")
+      mediaSplit.setAttribute("src", videos)
+      mediaSplit.setAttribute("controls", "controls")
+      }
+      else{
+       mediaSplit = document.createElement( 'img' );
+      mediaSplit.classList.add("photograph-media__picture")
+      mediaSplit.setAttribute("src", picture)
+      }
      
    
       const mediaProfileDiv = document.createElement( 'div' );
@@ -113,21 +119,28 @@ function mediaFactory(media) {
       const h2 = document.createElement( 'h2' );
       h2.textContent = title;
       h2.classList.add("photograph-media__title");
+
+      const mediaProfileDivLiks = document.createElement( 'div' );
+      mediaProfileDivLiks.classList.add("photograph-media__div__liks")
+
       const liks = document.createElement( 'span' );
       liks.textContent = likes;
       liks.classList.add("photograph-media__liks");
-      // const heart = document.createElement( 'i' );
-      // heart.innerHTML '<i class="fa-solid fa-heart"';
-      // heart.classList.add("fa-solid fa-heart");
+
       const  heart = document.createElement('i');
-        heart.classList.add("fa-solid", "fa-heart");
+        heart.classList.add("fas");
+        heart.classList.add("fa-heart");
+        
+       
+        
         // mediaProfile.appendChild(mediaArticle)
-        mediaProfile.appendChild(img);
+        mediaProfile.appendChild(mediaSplit);
       // mediaProfile.appendChild(video);
       mediaProfile.appendChild(mediaProfileDiv);
-      mediaProfileDiv.appendChild(h2); 
-      mediaProfileDiv.appendChild(liks);
-      mediaProfileDiv.appendChild(heart);
+      mediaProfileDiv.appendChild(h2);
+      mediaProfileDiv.appendChild(mediaProfileDivLiks)
+      mediaProfileDivLiks.appendChild(liks);
+      mediaProfileDivLiks.appendChild(heart);
       
 
     return mediaProfile;
