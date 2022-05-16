@@ -34,7 +34,9 @@ function photographerFactory(data) {
     }
 
   function getUserHeaderDOM() {
-  const profile = document.createElement('section');
+  const profile = document.createDocumentFragment();
+
+
 
   // image du profile
   const img = document.createElement( 'img' );
@@ -47,25 +49,31 @@ function photographerFactory(data) {
   // nom du  profile
   const h2 = document.createElement( 'h2' );
   h2.textContent = name;
-  h2.classList.add("photograph-header__name")
-
+  h2.classList.add("photograph-header__name");
   // ville et pays du profile
   const locationSpan = document.createElement( 'div' );
   locationSpan.textContent = city + ', ' + country;
-  locationSpan.classList.add("photograph-header__location")
+  locationSpan.classList.add("photograph-header__location");
 
   //  tagline du profile
   const taglineSpan = document.createElement( 'div' );
   taglineSpan.textContent = tagline;
-  taglineSpan.classList.add("photograph-header__tagline")
+  taglineSpan.classList.add("photograph-header__tagline");
 
-  profile.appendChild(img);
-  profile.appendChild(profileDiv);
+  const contactButton = document.createElement('button');
+  contactButton.textContent = "Contactez-moi";
+  contactButton.classList.add('contact_button');
+  
+  // document.getElementsByClassName('contact_button');
   profileDiv.appendChild(h2);
   profileDiv.appendChild(locationSpan);
   profileDiv.appendChild(taglineSpan);
+  profile.appendChild(profileDiv);
+  //profile.appendChild(priceSpan);
+  profile.appendChild(contactButton);
+  profile.appendChild(img);
 
-  return profile
+  return profile 
 }
  
 return {name, picture, city, country, tagline, price, getUserCardDOM, getUserHeaderDOM}
@@ -74,13 +82,21 @@ return {name, picture, city, country, tagline, price, getUserCardDOM, getUserHea
 
 function mediaFactory(media) {
 
-  const { photographerId, id, title, image, video, likes, date} = media;     
-  const picture = `assets/photos/${image}`;
-  const videos = `assets/photos/${video}}`;
-    function getUserMediaDOM() {
-      const mediaProfile = document.createElement('section');
-      mediaProfile.classList.add("photograph-media__div")
+  const { photographerId, id, title, image, video, likes, date} = media; 
+  const picture = `assets/photos/${image}`;    
+ const videos = `assets/photos/${video}}`
+//   if (media.hasOwnProperty('image')) {
     
+
+   
+// } else if (media.hasOwnProperty('video')) {
+//  
+// };
+// if (media.hasOwnProperty('image')) {
+    function getUserMediaDOM() {
+      const mediaProfile = document.createElement('article');
+      // mediaProfile.classList.add("media__article")
+      
       // média du profil
       const img = document.createElement( 'img' );
       img.classList.add("photograph-media__picture")
@@ -90,31 +106,38 @@ function mediaFactory(media) {
       // img.setAttribute("src", videos)
      
    
-      // const mediaProfileDiv = document.createElement( 'div' );
-      // mediaProfileDiv.classList.add("photograph-media__div")
-      
+      const mediaProfileDiv = document.createElement( 'div' );
+      mediaProfileDiv.classList.add("photograph-media__div")
+
       // titre des médias
       const h2 = document.createElement( 'h2' );
       h2.textContent = title;
-      h2.classList.add("photograph-media__title")
+      h2.classList.add("photograph-media__title");
       const liks = document.createElement( 'span' );
       liks.textContent = likes;
-      liks.classList.add("photograph-media__liks")
+      liks.classList.add("photograph-media__liks");
       // const heart = document.createElement( 'i' );
       // heart.innerHTML '<i class="fa-solid fa-heart"';
       // heart.classList.add("fa-solid fa-heart");
-    
-      mediaProfile.appendChild(img);
+      const  heart = document.createElement('i');
+        heart.classList.add("fa-solid", "fa-heart");
+        // mediaProfile.appendChild(mediaArticle)
+        mediaProfile.appendChild(img);
       // mediaProfile.appendChild(video);
-      // mediaProfile.appendChild(mediaProfileDiv);
-      mediaProfile.appendChild(h2); 
-      mediaProfile.appendChild(liks); 
-      // mediaProfile.appendChild(heart); 
+      mediaProfile.appendChild(mediaProfileDiv);
+      mediaProfileDiv.appendChild(h2); 
+      mediaProfileDiv.appendChild(liks);
+      mediaProfileDiv.appendChild(heart);
+      
 
     return mediaProfile;
-    }
-
+     }
+  
+  // else if (media.hasOwnProperty('video')) {
+  //     // const video= document.createElement( 'video' );
+  //     // img.classList.add("photograph-media__video")
+  //     // img.setAttribute("src", videos)
     return {photographerId, id, title, image, video, likes, date, getUserMediaDOM }
-  }
+}
 
     

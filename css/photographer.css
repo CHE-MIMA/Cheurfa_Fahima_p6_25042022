@@ -4,34 +4,40 @@
 
 .photograph-header {
     background-color: #FAFAFA;
-    height: 300px;
+    height: 250px;
     margin: 0 100px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 20px 60px;
+    
 }
-.photograph-header__profile {
-    margin-top: -50px
 
-}
+
 .photograph-header__picture
 {
-    height: 150px;
-    width: 150px;
+    height: 210px;
+    width: 210px;
     border-radius: 50%; 
     object-fit: cover;
-   
+   margin-top: 20px;
     
 }
 .photograph-header__name{
-font-size: 50px;
+font-size: 55px;
 color: #D3573C;
+
+
 }
 .photograph-header__location{
-    font-size: 20px;
+    font-size: 24px;
     color:  #901C1C;
-    
+    margin-top: -30px;
 }
 .photograph-header__tagline{
-    font-size: 15px;
-    color: #525252;
+    font-size: 17px;
+    color:#525252;
+    margin-top: 20px;
 
 }
 .contact_button {
@@ -46,7 +52,6 @@ color: #D3573C;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 100px;
-    margin-left: 600px;
     font-Weight: 600;
 
     
@@ -60,7 +65,7 @@ color: #D3573C;
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
+    width: 35%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -75,11 +80,13 @@ color: #D3573C;
 }
 
 .modal header img {
+     width: 30px;
+     height: 30px;
     cursor: pointer;
 }
 
 .modal header h2 {
-    font-size: 64px;
+    font-size: 50px;
     font-weight: normal;
     text-align: center;
 }
@@ -121,28 +128,42 @@ form input {
     
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        gap: 60px;
+        gap: 40px;
         margin-top: 100px;
-        margin-left: 50px;
+        margin-left: 100px;
+        margin-right: 60px;
     
+}
+.photograph-media__div
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 .photograph-media__picture{
     width: 400px;
     height: 400px;
     object-fit: cover;
+    border-radius: 10px;
 }
 
 .photograph-media__title{
    font-weight: 400;
     font-Size: 24px;
    color: #901C1C;
-   margin-top: -2px;
+   margin-top: 0px; 
+   
+  
 }
 .photograph-media__liks{
-   
-
     font-Size: 22px;
     color: #901C1C;
-     margin-top: -100px;
-    font-weight: 500;   
+    font-weight: 500;
+    margin-top: 5px;   
+}
+.i{
+  font-size: 20px;  
+  height: 20px;
+  width: 20px;
+  margin-top: 5px;
 }
