@@ -79,9 +79,20 @@ function photographerFactory(data) {
 }
 function getFooterDOM(){
   const baniere = document.createElement('div'); 
-  baniere.classList.add("photograph-baniere")
-  
+  baniere.classList.add("photograph-baniere__div");
 
+  const  heart = document.createElement('i');
+  heart.classList.add("fas");
+  heart.classList.add("fa-heart");
+  heart.classList.add("photograph-baniere__heart");
+  baniere.appendChild(heart);
+
+  const priceBaniere = document.createElement ('h5');
+  priceBaniere.textContent = `${price} € / jour`;
+  priceBaniere.classList.add("photograph-baniere__price");
+  baniere.appendChild(priceBaniere);
+
+return baniere
 
 }
 return {name, picture, city, country, tagline, price, getUserCardDOM, getUserHeaderDOM,getFooterDOM}
@@ -152,7 +163,6 @@ function mediaFactory(media) {
         media.likes++;
         liks.textContent = `${media.likes}`;
       });
-
     return mediaProfile;
      }
   

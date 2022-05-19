@@ -32,6 +32,14 @@ async function displayProfil(myProfilePhotographer) {
     const userHeaderDOM = photographerModel.getUserHeaderDOM();
     photographersHeader.appendChild(userHeaderDOM);
     };
+ async function displayFooter(myProfilePhotographer){
+    const photographBaniere = document.querySelector(".photograph-baniere");
+    const photographer = await myProfilePhotographer;
+    const photographerModel = photographerFactory(photographer);
+    const userFooterDOM = photographerModel.getFooterDOM();
+    photographBaniere.appendChild(userFooterDOM);
+    }; 
+ 
 
 async function displayMedia(medias) {
     const photographersMedia = document.querySelector(".photograph-media");
@@ -48,7 +56,7 @@ async function init() {
     const myProfilePhotographer = profilePhotograph.find(element => element.id == idPhotographer);
      console.log(myProfilePhotographer); 
      displayProfil(myProfilePhotographer);
-
+     displayFooter(myProfilePhotographer);
 // recupère les datas des médias
 
     let mediatab = []
@@ -59,6 +67,15 @@ async function init() {
     }
     const medias = mediatab;
     console.log(medias);
+
+    // recupere les id des media
+    let mediaId= []
+    for (i=0; i<data.media.length; i++) {
+         mediaId = data.media[i].id;
+        console.log(mediaId);
+    }
+    // let total = getmediaLiks(mediaId) + getmediaLiks(mediaId); 
+    // console.log( total);
     displayMedia(medias);
 };
 init();
