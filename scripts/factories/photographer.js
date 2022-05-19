@@ -64,7 +64,9 @@ function photographerFactory(data) {
   contactButton.textContent = "Contactez-moi";
   contactButton.classList.add("contact_button");
   contactButton.setAttribute("id", "contact-button")
-  
+  contactButton.addEventListener('click', function(){
+    displayModalContact();
+});
   
   // document.getElementsByClassName('contact_button');
   profileDiv.appendChild(h2);
@@ -157,8 +159,8 @@ function mediaFactory(media) {
       mediaProfileDiv.appendChild(mediaProfileDivLiks)
       mediaProfileDivLiks.appendChild(liks);
       mediaProfileDivLiks.appendChild(heart);
-       // click sur les liks
-      
+       
+      // click sur les liks
       heart.addEventListener('click', function(){
         media.likes++;
         liks.textContent = `${media.likes}`;
@@ -166,10 +168,6 @@ function mediaFactory(media) {
     return mediaProfile;
      }
   
-  // else if (media.hasOwnProperty('video')) {
-  //     // const video= document.createElement( 'video' );
-  //     // img.classList.add("photograph-media__video")
-  //     // img.setAttribute("src", videos)
     return {photographerId, id, title, image, video, likes, date, getUserMediaDOM }
 }
 

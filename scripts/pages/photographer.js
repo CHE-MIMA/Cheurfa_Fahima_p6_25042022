@@ -32,6 +32,16 @@ async function displayProfil(myProfilePhotographer) {
     const userHeaderDOM = photographerModel.getUserHeaderDOM();
     photographersHeader.appendChild(userHeaderDOM);
     };
+    async function displayModalContact(myProfilePhotographer){
+        const photographeContact = document.querySelector("#contact_modal");
+         await myProfilePhotographer;
+        photographeContact.style.display ='block'; 
+    }; 
+   async function closeModalContact(myProfilePhotographer){
+    const photographeContact = document.querySelector("#contact_modal");
+    await myProfilePhotographer;
+   photographeContact.style.display ='none'; 
+}; 
  async function displayFooter(myProfilePhotographer){
     const photographBaniere = document.querySelector(".photograph-baniere");
     const photographer = await myProfilePhotographer;
@@ -39,8 +49,6 @@ async function displayProfil(myProfilePhotographer) {
     const userFooterDOM = photographerModel.getFooterDOM();
     photographBaniere.appendChild(userFooterDOM);
     }; 
- 
-
 async function displayMedia(medias) {
     const photographersMedia = document.querySelector(".photograph-media");
     medias.forEach((media) => {
@@ -74,8 +82,7 @@ async function init() {
          mediaId = data.media[i].id;
         console.log(mediaId);
     }
-    // let total = getmediaLiks(mediaId) + getmediaLiks(mediaId); 
-    // console.log( total);
+   
     displayMedia(medias);
 };
 init();
