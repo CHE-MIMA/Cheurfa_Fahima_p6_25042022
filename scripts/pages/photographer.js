@@ -6,12 +6,8 @@ const urlParams = new URLSearchParams(queryString);
 
  const idPhotographer = urlParams.get("id");
  
-
-
-
  async function getPhotographers(data) {
     // remplacement par les données récupérées dans le json
-    
     await fetch("http://127.0.0.1:5500/data/photographers.json")
 
 .then(function(response) {
@@ -22,7 +18,6 @@ const urlParams = new URLSearchParams(queryString);
  .then(function(value) {
     data= value;
     console.log(data); 
-
 })
 .catch(function() {
 })
@@ -53,8 +48,6 @@ async function init() {
     const myProfilePhotographer = profilePhotograph.find(element => element.id == idPhotographer);
      console.log(myProfilePhotographer); 
      displayProfil(myProfilePhotographer);
-
-
 
 // recupère les datas des médias
 

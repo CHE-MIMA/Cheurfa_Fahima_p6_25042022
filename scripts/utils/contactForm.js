@@ -1,25 +1,64 @@
-// function displayModal() {
-//     const modal = document.getElementsById("contact_modal");
-    
-// 	modal.style.display = "block";
-// }
 
-// function closeModal() {
-//     const modal = document.getElementById("contact_modal");
-//     modal.style.display = "none";
+// const Modal = document.querySelector("#contact_modal");
+// const closeBtn = document.getElementById("close-btn");
+// launch modal event
+// const modalBtn = document.getElementById("contact-button")
+// async function displayModal(myProfilePhotographer) {
+//   const Modal = document.querySelector("#contact_modal");
+//   await myProfilePhotographer;
+ 
+//   Modal.style.display ='block';
+//    }
 
-//     document.getElementsById("contact_modal").addEventListener("click", function validateForm(event) {
+//    modalBtn.addEventListener('click', async function(){
+//   const data  =  await getPhotographers();
+//     const profilePhotograph = data.photographers;
+//     const myProfilePhotographer = profilePhotograph.find(element => element.id == idPhotographer);
+   
+//     console.log(myProfilePhotographer); 
+   
+
+//       displayModal(myProfilePhotographer);
+//     });
+  
+
+
+
+
+// async function displayModal(myProfilePhotographer) {
+//   const myProfilePhotographer = profilePhotograph.find(element => element.id == idPhotographer);
+//   const Modal = document.querySelector("#contact_modal");
+//   Modal.style.display ='block';
+//   };
+
+
+
+
+// // // function closeModal() { 
+// // // modal.style.display= "none";
+// // // }
+// const Modal = document.querySelector("#contact_modal");
+// //DOM elements (Variables)
+// const prenom = document.getElementById('first');
+// const errorprenom = document.getElementById('errorprenom')
+// const nom = document.getElementById('last');
+// const errornom = document.getElementById('errornom')
+// const email = document.getElementById('email');
+// const erroremail = document.getElementById('erroremail')
+// const message = document.getElementById('message');
+// const errormessage = document.getElementById('errormessage');
+
+//     document.getElementById('submit-btn').addEventListener("click", function validateForm(event) {
 //     event.preventDefault();
    
-    
-//     displayModal();
 //     let champErreur = 0;
 //     let prenomValue = prenom.value;
 //     let pattern = /^[a-zA-Z ]+$/i;
 //     let nomValue = nom.value;
+//     let messageValue = message.value;
 //     // validat prenom
 //     if (prenomValue.length < 2 || !pattern.test(prenomValue)) {
-//       errorprenom.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du prenom.";
+//       errorprenom.innerHTML = "Veuillez entrer votre prenom.";
 //       prenom.style.border = "2px solid red";
 //       champErreur++;
   
@@ -31,7 +70,7 @@
 //     //validation nom
   
 //     if (nomValue.length <2 ||!pattern.test(nomValue)){
-//     errornom.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
+//     errornom.innerHTML = "Veuillez entrer votre nom.";
 //     nom.style.border = "2px solid red";
 //     champErreur++;
 //   }
@@ -51,79 +90,28 @@
 //     email.style.border = "0px";
 //   }
   
-//   // //  // validation barthdate
+//   // //  // validation massage
   
-//   if (!(birthdate.value)) {
-//     errorbirthdate.innerHTML = "veuillez entrer une date de naissance";
-//     birthdate.style.border = "2px solid red";
+//   if (messageValue.length <2 && messageValue.length > 250 ) {
+//     errormessage.innerHTML = "veuillez entrer votre message";
+//     message.style.border = "2px solid red";
 //     champErreur++;
 //   }
 //   else {
-//     errorbirthdate.innerHTML = "";
-//     birthdate.style.border = "0px";
-  
-  //  // validation quantity
-//   if (!/^([0-9]{1,2})$/.test(quantity.value)) {
-//     errorquantity.innerHTML = "veuillez entrer un chiffre de 0 à 99 ";
-//     quantity.style.border = "2px solid red";
-//     champErreur++;
-//   }
-//   else {
-//     errorquantity.innerHTML = "";
-//     quantity.style.border = "0px";
-//   }
-//   //  // validation localisation
-//   let option = false;
-//   for (i = 0; i < locationSelect.length; i++) {
-//     if (locationSelect[i].checked) {
-//       option = true;
-//     }
-//   }
-//   if (option == false) {
-//     errorlocation.innerHTML = "Vous devez choisir une option.";
-//     champErreur++;
-//   }
-//   else {
-//     errorlocation.innerHTML = "";
+//     errormessage.innerHTML = "";
+//     message.style.border = "0px";
   
 //   }
-  
-//   //   //  validation condition d'utilisation  
-//   if (!checkBox1.checked) {
-//     errorcheckbox.innerHTML = "Vous devez vérifiez les conditions d'utilisation.";
-//     champErreur++;
-//   }
-//   else {
-//     errorcheckbox.innerHTML = "";
-    
-//   }
-  
 //   if (champErreur == 0) {
-//     succes();
-//   }
-//     })
+//     console.log("votre message a été envoyé");
+// }
+//     });
   
-//   function succes() {
-//     //  launch succesModal
-//     const modalbg = document.querySelector(".bground");
-//     const succesModal = document.querySelector(".confirmation-bg");
-//     modalbg.style.display = "none";
-//     succesModal.style.display = "block";
+    
   
+
   
-//     //Close succesModal
-//     document.querySelectorAll('.close-succes').forEach(btn => {
-//       btn.addEventListener('click', (e) => {
-//         if (succesModal.style.display = "block") {
-//           succesModal.style.display = 'none';
-//         }
-//       })
-//     })
-//     //  reset form
-//     document.getElementById('form').reset();
-//   }
-  
-  
+
   
   
   

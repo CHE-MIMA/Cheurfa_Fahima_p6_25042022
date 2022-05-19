@@ -62,21 +62,29 @@ function photographerFactory(data) {
 
   const contactButton = document.createElement('button');
   contactButton.textContent = "Contactez-moi";
-  contactButton.classList.add('contact_button');
+  contactButton.classList.add("contact_button");
+  contactButton.setAttribute("id", "contact-button")
+  
   
   // document.getElementsByClassName('contact_button');
   profileDiv.appendChild(h2);
   profileDiv.appendChild(locationSpan);
   profileDiv.appendChild(taglineSpan);
   profile.appendChild(profileDiv);
-  //profile.appendChild(priceSpan);
+  // profile.appendChild(priceSpan);
   profile.appendChild(contactButton);
   profile.appendChild(img);
 
   return profile 
 }
- 
-return {name, picture, city, country, tagline, price, getUserCardDOM, getUserHeaderDOM}
+function getFooterDOM(){
+  const baniere = document.createElement('div'); 
+  baniere.classList.add("photograph-baniere")
+  
+
+
+}
+return {name, picture, city, country, tagline, price, getUserCardDOM, getUserHeaderDOM,getFooterDOM}
 }
   
 
@@ -97,8 +105,8 @@ function mediaFactory(media) {
       
       // média du profil
      let mediaSplit = null;
-     console.log(title);
-     console.log(videos);
+    //  console.log(title);
+    //  console.log(videos);
       if (videos.split('.').slice(-1)[0]=='mp4'){
        mediaSplit = document.createElement( 'video' );
       mediaSplit.classList.add("photograph-media__video")
@@ -130,9 +138,6 @@ function mediaFactory(media) {
       const  heart = document.createElement('i');
         heart.classList.add("fas");
         heart.classList.add("fa-heart");
-        
-       
-        
         // mediaProfile.appendChild(mediaArticle)
         mediaProfile.appendChild(mediaSplit);
       // mediaProfile.appendChild(video);
@@ -141,7 +146,12 @@ function mediaFactory(media) {
       mediaProfileDiv.appendChild(mediaProfileDivLiks)
       mediaProfileDivLiks.appendChild(liks);
       mediaProfileDivLiks.appendChild(heart);
+       // click sur les liks
       
+      heart.addEventListener('click', function(){
+        media.likes++;
+        liks.textContent = `${media.likes}`;
+      });
 
     return mediaProfile;
      }
