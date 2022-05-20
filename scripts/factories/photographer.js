@@ -8,14 +8,15 @@ function photographerFactory(data) {
       // lien de chaque photographe
         const lien = document.createElement ('a');
         lien.setAttribute("href", `photographer.html?id=${id}`)
+        article.appendChild(lien);
       //  image 
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
-        article.appendChild(img);
+        lien.appendChild(img);
       // nom
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
-        article.appendChild(h2);
+        lien.appendChild(h2);
       // ville et pays
         const h3 = document.createElement ('h3');
          h3.textContent = `${city}, ${country}`;
@@ -28,9 +29,8 @@ function photographerFactory(data) {
            const h5 = document.createElement ('h5');
            h5.textContent = `${price} € / jour`;
            article.appendChild(h5);
-
-           lien.appendChild(article);
-        return (lien);
+          //  article.appendChild(lien);
+        return (article);
     }
 
   function getUserHeaderDOM() {
@@ -80,8 +80,12 @@ function photographerFactory(data) {
   return profile 
 }
 function getFooterDOM(){
+  
   const baniere = document.createElement('div'); 
   baniere.classList.add("photograph-baniere__div");
+  const totalLikes = document.createElement('p')
+  totalLikes.classList.add("total-likes");
+  baniere.appendChild( totalLikes);
 
   const  heart = document.createElement('i');
   heart.classList.add("fas");
@@ -93,12 +97,10 @@ function getFooterDOM(){
   priceBaniere.textContent = `${price} € / jour`;
   priceBaniere.classList.add("photograph-baniere__price");
   baniere.appendChild(priceBaniere);
-
-return baniere
-
+return baniere 
 }
 return {name, picture, city, country, tagline, price, getUserCardDOM, getUserHeaderDOM,getFooterDOM}
-}
+};
   
 
 function mediaFactory(media) {
@@ -106,11 +108,6 @@ function mediaFactory(media) {
   const { photographerId, id, title, image, video, likes, date} = media; 
   const picture = `assets/photos/${image}`;    
  const videos = `assets/photos/${video}`
-//   if (media.hasOwnProperty('image')) {
-  
-// } else if (media.hasOwnProperty('video')) {
-//  
-// };
 // if (media.hasOwnProperty('image')) {
     function getUserMediaDOM() {
       const mediaProfile = document.createElement('article');
@@ -159,16 +156,15 @@ function mediaFactory(media) {
       mediaProfileDiv.appendChild(mediaProfileDivLiks)
       mediaProfileDivLiks.appendChild(liks);
       mediaProfileDivLiks.appendChild(heart);
-       
+   
       // click sur les liks
-      heart.addEventListener('click', function(){
-        media.likes++;
-        liks.textContent = `${media.likes}`;
+      heart.addEventListener("click", function(){
+       media.likes++
+       liks.textContent =`${media.likes}`
       });
-    return mediaProfile;
-     }
-  
+      return mediaProfile;
+    } 
     return {photographerId, id, title, image, video, likes, date, getUserMediaDOM }
 }
 
-    
+
