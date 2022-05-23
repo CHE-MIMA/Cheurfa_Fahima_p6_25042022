@@ -67,7 +67,9 @@ const errormessage = document.getElementById('errormessage');
   
   }
   if (champErreur == 0) {
-    console.log("votre message a été envoyé");
+    console.log(nom.value+' '+prenom.value);
+    console.log(email.value);
+    console.log(message.value);
     document.getElementById('form').reset();
   }
 

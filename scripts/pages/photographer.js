@@ -77,11 +77,11 @@ async function init() {
     console.log(medias);
 
     // recupere les id des media
-    let mediaId= []
-    for (i=0; i<data.media.length; i++) {
-         mediaId = data.media[i].id;
-        console.log(mediaId);
-    }
+    // let mediaId;
+    // for (i=0; i<data.media.length; i++) {
+    //      mediaId = data.media[i].id;
+    //     console.log(mediaId);
+    // }
    
     displayMedia(medias);
 };

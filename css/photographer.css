@@ -180,9 +180,9 @@ form input {
     height: 88PX;
     margin-left: 68%;
     margin-right: 0PX;
-    position: absolute;
+    position: sticky;
     background-color: #DB8876;
-    position: absolute;
+    bottom: 0;
     border-radius: 5px;  
 }
 .photograph-baniere__div{

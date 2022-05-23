@@ -83,8 +83,9 @@ function getFooterDOM(){
   
   const baniere = document.createElement('div'); 
   baniere.classList.add("photograph-baniere__div");
-  const totalLikes = document.createElement('p')
+  const totalLikes = document.createElement('span')
   totalLikes.classList.add("total-likes");
+  totalLikes.innerText = totalLiks;
   baniere.appendChild( totalLikes);
 
   const  heart = document.createElement('i');
@@ -102,6 +103,7 @@ return baniere
 return {name, picture, city, country, tagline, price, getUserCardDOM, getUserHeaderDOM,getFooterDOM}
 };
   
+let totalLiks = 0; 
 
 function mediaFactory(media) {
 
@@ -160,11 +162,43 @@ function mediaFactory(media) {
       // click sur les liks
       heart.addEventListener("click", function(){
        media.likes++
+       let spantotalLiks = document.getElementsByClassName("total-likes");
+console.log(spantotalLiks);
+console.log(totalLiks);
+       totalLiks= totalLiks+1;
+       console.log(totalLiks);
+       spantotalLiks = totalLiks;
        liks.textContent =`${media.likes}`
+      
       });
       return mediaProfile;
+
     } 
+    
+      console.log(likes);
+      totalLiks+= likes
+      console.log(totalLiks);
+   
     return {photographerId, id, title, image, video, likes, date, getUserMediaDOM }
 }
 
+// function getFooterDOM(myProfilPhotographer, media){
+  
+//   const baniere = document.createElement('div'); 
+//   baniere.classList.add("photograph-baniere__div");
+//   const totalLikes = document.createElement('span')
+//   totalLikes.classList.add("total-likes");
+//   baniere.appendChild( totalLikes);
 
+//   const  heart = document.createElement('i');
+//   heart.classList.add("fas");
+//   heart.classList.add("fa-heart");
+//   heart.classList.add("photograph-baniere__heart");
+//   baniere.appendChild(heart);
+
+//   const priceBaniere = document.createElement ('h5');
+//   priceBaniere.textContent = `${(price} € / jour`;
+//   priceBaniere.classList.add("photograph-baniere__price");
+//   baniere.appendChild(priceBaniere);
+// return baniere 
+// }
