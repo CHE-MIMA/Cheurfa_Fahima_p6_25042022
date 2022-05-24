@@ -78,10 +78,9 @@ color: #D3573C;
      height: 25px;
     cursor: pointer;
 }
-.modal header h2 {
+.modal-contact_title {
     font-size: 40px;
-    font-weight: normal;
-    text-align: center;
+    font-weight: normal;    
 }
 form {
     display: flex;
@@ -167,6 +166,7 @@ form input {
     margin-right: 10px;
       
 }
+
 .fa-heart{
     position: relative;
     display: block;
@@ -190,13 +190,19 @@ form input {
     flex-direction: row;
     justify-content: space-between;
 }
+.total-likes{
+    font-size: 20px;
+    padding-left: 50px;
+    margin-top: 35px;
+    font-weight: 600;
+}
 .photograph-baniere__heart{
 font-size: 22px;
 padding-top: 30px;
-padding-left: 130px;
+margin-left: -100px;
 color: black;
 }
 .photograph-baniere__price{
     font-size: 20px;
-    padding-right: 35px;
+    padding-right: 50px;
 }

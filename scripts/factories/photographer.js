@@ -1,10 +1,10 @@
 function photographerFactory(data) {
     const { name, id, city, country, price, portrait, tagline } = data;
-
     const picture = `assets/photographers/${portrait}`;
 
     function getUserCardDOM() {
         const article = document.createElement('article');
+        
       // lien de chaque photographe
         const lien = document.createElement ('a');
         lien.setAttribute("href", `photographer.html?id=${id}`)
@@ -14,6 +14,7 @@ function photographerFactory(data) {
         img.setAttribute("src", picture);
         lien.appendChild(img);
       // nom
+      
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
         lien.appendChild(h2);
@@ -29,15 +30,12 @@ function photographerFactory(data) {
            const h5 = document.createElement ('h5');
            h5.textContent = `${price} € / jour`;
            article.appendChild(h5);
-          //  article.appendChild(lien);
+      
         return (article);
     }
 
   function getUserHeaderDOM() {
   const profile = document.createDocumentFragment();
-
-
-
   // image du profile
   const img = document.createElement( 'img' );
   img.classList.add("photograph-header__picture")
@@ -50,6 +48,7 @@ function photographerFactory(data) {
   const h2 = document.createElement( 'h2' );
   h2.textContent = name;
   h2.classList.add("photograph-header__name");
+
   // ville et pays du profile
   const locationSpan = document.createElement( 'div' );
   locationSpan.textContent = city + ', ' + country;
@@ -60,40 +59,50 @@ function photographerFactory(data) {
   taglineSpan.textContent = tagline;
   taglineSpan.classList.add("photograph-header__tagline");
 
+  //  boutton de contact
   const contactButton = document.createElement('button');
-  contactButton.textContent = "Contactez-moi";
+  contactButton.textContent = 'Contactez-moi';
   contactButton.classList.add("contact_button");
   contactButton.setAttribute("id", "contact-button")
   contactButton.addEventListener('click', function(){
     displayModalContact();
 });
-  
-  // document.getElementsByClassName('contact_button');
+
+ // Creation nom dans la modal de contact
+const textContact = document.querySelector('.modal-contact_title');
+
+function createInfoModal(){
+    let infoModalHTML =  `<p class="modal-contact_title"> Contactez-moi <br> ${name}</p>`;
+    return infoModalHTML; 
+};
+textContact.innerHTML = createInfoModal(); 
+
   profileDiv.appendChild(h2);
   profileDiv.appendChild(locationSpan);
   profileDiv.appendChild(taglineSpan);
   profile.appendChild(profileDiv);
-  // profile.appendChild(priceSpan);
   profile.appendChild(contactButton);
   profile.appendChild(img);
 
   return profile 
 }
+
 function getFooterDOM(){
-  
+  // baniere dom
   const baniere = document.createElement('div'); 
   baniere.classList.add("photograph-baniere__div");
+
   const totalLikes = document.createElement('span')
   totalLikes.classList.add("total-likes");
-  totalLikes.innerText = totalLiks;
+  // totalLikes.innerText = totalLiks;
   baniere.appendChild( totalLikes);
-
-  const  heart = document.createElement('i');
+  // icone coeur dom
+  const heart = document.createElement('i');
   heart.classList.add("fas");
   heart.classList.add("fa-heart");
   heart.classList.add("photograph-baniere__heart");
   baniere.appendChild(heart);
-
+  // baniere prix dom
   const priceBaniere = document.createElement ('h5');
   priceBaniere.textContent = `${price} € / jour`;
   priceBaniere.classList.add("photograph-baniere__price");
@@ -102,23 +111,20 @@ return baniere
 }
 return {name, picture, city, country, tagline, price, getUserCardDOM, getUserHeaderDOM,getFooterDOM}
 };
-  
+ 
 let totalLiks = 0; 
-
 function mediaFactory(media) {
-
   const { photographerId, id, title, image, video, likes, date} = media; 
   const picture = `assets/photos/${image}`;    
- const videos = `assets/photos/${video}`
-// if (media.hasOwnProperty('image')) {
+  const videos = `assets/photos/${video}`
+
     function getUserMediaDOM() {
       const mediaProfile = document.createElement('article');
-      // mediaProfile.classList.add("media__article")
-      
-      // média du profil
-     let mediaSplit = null;
-    //  console.log(title);
-    //  console.log(videos);
+
+      // média du profil separateur 
+      let mediaSplit = null;
+      //  console.log(title);
+      //  console.log(videos);
       if (videos.split('.').slice(-1)[0]=='mp4'){
        mediaSplit = document.createElement( 'video' );
       mediaSplit.classList.add("photograph-media__video")
@@ -130,8 +136,7 @@ function mediaFactory(media) {
       mediaSplit.classList.add("photograph-media__picture")
       mediaSplit.setAttribute("src", picture)
       }
-     
-   
+
       const mediaProfileDiv = document.createElement( 'div' );
       mediaProfileDiv.classList.add("photograph-media__div")
 
@@ -142,7 +147,7 @@ function mediaFactory(media) {
 
       const mediaProfileDivLiks = document.createElement( 'div' );
       mediaProfileDivLiks.classList.add("photograph-media__div__liks")
-
+      // liks des media
       const liks = document.createElement( 'span' );
       liks.textContent = likes;
       liks.classList.add("photograph-media__liks");
@@ -150,55 +155,28 @@ function mediaFactory(media) {
       const  heart = document.createElement('i');
         heart.classList.add("fas");
         heart.classList.add("fa-heart");
-        // mediaProfile.appendChild(mediaArticle)
-        mediaProfile.appendChild(mediaSplit);
-      // mediaProfile.appendChild(video);
+
+      mediaProfile.appendChild(mediaSplit);
       mediaProfile.appendChild(mediaProfileDiv);
       mediaProfileDiv.appendChild(h2);
       mediaProfileDiv.appendChild(mediaProfileDivLiks)
       mediaProfileDivLiks.appendChild(liks);
       mediaProfileDivLiks.appendChild(heart);
-   
+
       // click sur les liks
       heart.addEventListener("click", function(){
        media.likes++
-       let spantotalLiks = document.getElementsByClassName("total-likes");
-console.log(spantotalLiks);
-console.log(totalLiks);
-       totalLiks= totalLiks+1;
+       liks.textContent =`${media.likes}`;
+       totalLiks++;
        console.log(totalLiks);
-       spantotalLiks = totalLiks;
-       liks.textContent =`${media.likes}`
-      
+       document.querySelector('.total-likes').innerText = totalLiks; 
       });
       return mediaProfile;
-
     } 
-    
-      console.log(likes);
-      totalLiks+= likes
-      console.log(totalLiks);
-   
+    // calcul total liks
+    console.log(likes);
+    totalLiks+= likes
+    console.log(totalLiks);
     return {photographerId, id, title, image, video, likes, date, getUserMediaDOM }
 }
 
-// function getFooterDOM(myProfilPhotographer, media){
-  
-//   const baniere = document.createElement('div'); 
-//   baniere.classList.add("photograph-baniere__div");
-//   const totalLikes = document.createElement('span')
-//   totalLikes.classList.add("total-likes");
-//   baniere.appendChild( totalLikes);
-
-//   const  heart = document.createElement('i');
-//   heart.classList.add("fas");
-//   heart.classList.add("fa-heart");
-//   heart.classList.add("photograph-baniere__heart");
-//   baniere.appendChild(heart);
-
-//   const priceBaniere = document.createElement ('h5');
-//   priceBaniere.textContent = `${(price} € / jour`;
-//   priceBaniere.classList.add("photograph-baniere__price");
-//   baniere.appendChild(priceBaniere);
-// return baniere 
-// }
