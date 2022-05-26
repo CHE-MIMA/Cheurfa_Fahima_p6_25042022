@@ -37,11 +37,13 @@ async function displayProfil(myProfilePhotographer) {
          await myProfilePhotographer;
         photographeContact.style.display ='block'; 
     }; 
+
    async function closeModalContact(myProfilePhotographer){
     const photographeContact = document.querySelector("#contact_modal");
     await myProfilePhotographer;
    photographeContact.style.display ='none'; 
 }; 
+
  async function displayFooter(myProfilePhotographer){
     const photographBaniere = document.querySelector(".photograph-baniere");
     const photographer = await myProfilePhotographer;
@@ -55,7 +57,17 @@ async function displayMedia(medias) {
     const photographerModel = mediaFactory(media);
     const userMediaDOM = photographerModel.getUserMediaDOM();
     photographersMedia.appendChild(userMediaDOM);
-    });
+    })
+    
+};
+async function displayLightbox(medias) {
+    // await myProfilePhotographer;
+    await medias;
+    const functionLightbox = createLightbox(medias);
+     document.querySelectorAll(".media-cards").forEach(mediaDom => { mediaDom.addEventListener("click",(e)=>{
+        functionLightbox.show(e.currentTarget.dataset.id);
+});
+});
 };
 async function init() {
     // Récupère les datas des profils par leurs id
@@ -84,6 +96,7 @@ async function init() {
     // }
    
     displayMedia(medias);
+    displayLightbox(medias); 
 };
 init();
 

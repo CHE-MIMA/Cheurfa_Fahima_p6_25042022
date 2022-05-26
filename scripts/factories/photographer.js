@@ -72,7 +72,7 @@ function photographerFactory(data) {
 const textContact = document.querySelector('.modal-contact_title');
 
 function createInfoModal(){
-    let infoModalHTML =  `<p class="modal-contact_title"> Contactez-moi <br> ${name}</p>`;
+    let infoModalHTML = `<p class="modal-contact_title"> Contactez-moi <br> ${name}</p>`;
     return infoModalHTML; 
 };
 textContact.innerHTML = createInfoModal(); 
@@ -94,6 +94,7 @@ function getFooterDOM(){
 
   const totalLikes = document.createElement('span')
   totalLikes.classList.add("total-likes");
+  totalLikes.innerText = totalLiks;
   // totalLikes.innerText = totalLiks;
   baniere.appendChild( totalLikes);
   // icone coeur dom
@@ -119,7 +120,10 @@ function mediaFactory(media) {
   const videos = `assets/photos/${video}`
 
     function getUserMediaDOM() {
-      const mediaProfile = document.createElement('article');
+      const mediaProfile = document.createElement('section');
+      const mediaCards = document.createElement('div');
+      mediaCards.classList.add('media-cards');
+      mediaCards.setAttribute("data-id", id);
 
       // média du profil separateur 
       let mediaSplit = null;
@@ -156,7 +160,9 @@ function mediaFactory(media) {
         heart.classList.add("fas");
         heart.classList.add("fa-heart");
 
-      mediaProfile.appendChild(mediaSplit);
+      
+      mediaProfile.appendChild(mediaCards);
+      mediaCards.appendChild(mediaSplit);
       mediaProfile.appendChild(mediaProfileDiv);
       mediaProfileDiv.appendChild(h2);
       mediaProfileDiv.appendChild(mediaProfileDivLiks)

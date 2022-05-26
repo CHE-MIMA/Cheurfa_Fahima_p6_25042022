@@ -157,18 +157,17 @@ form input {
 {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 .photograph-media__liks{
     font-Size: 20px;
     color: #901C1C;
     font-weight: 500;
     margin-top: 5px;
-    margin-right: 10px;
-      
+    margin-right: 10px;     
 }
-
 .fa-heart{
-    position: relative;
+    
     display: block;
     font-size: 20px;
     margin-top: 7px;
@@ -205,4 +204,70 @@ color: black;
 .photograph-baniere__price{
     font-size: 20px;
     padding-right: 50px;
+ }
+ #lightbox_bg{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #80808080;
+    left: 0px;
+    top:0px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    align-self: center;  
+ }
+ .lightbox_content{
+width: 1000px;
+height: 750px;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+justify-content: center;
+align-items: center;
+background-color: white;
+ }
+ .lightbox-media-image{
+     width: 700px;
+     height: 650px;
+     border-radius: 10px;
+    object-fit: cover;
+    margin-right: 20px;
+    margin-top: 50px;
+      
+ }
+ .lightbox-media-video{
+    width: 700px;
+    height: 650px;
+    border-radius: 10px;
+   object-fit: cover;
+   margin-right: 20px;
+   margin-top: 50px;  
 }
+ .lightbox_previous{
+     font-size: 60px;
+     color: #901C1C;
+     font-weight: 600;
+     margin-right: 20px; 
+     cursor: pointer;
+ }
+ .lightbox_next{
+    font-size: 60px;
+    color: #901C1C;
+    font-weight: 600; 
+    cursor: pointer; 
+ }
+ .lightbox_close{
+     margin-top: -650px;
+    font-size: 70px;
+    color: #901C1C;
+    margin-right: -30px;
+    cursor: pointer;  
+ }
+ .lightbox_title{
+     color: #901C1C;
+     font-size: 20px;
+     margin-top: -2px;
+     font-weight: 400;
+ }
