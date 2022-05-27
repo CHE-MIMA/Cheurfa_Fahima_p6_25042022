@@ -68,23 +68,26 @@ function display(){
     const picture = `assets/photos/${currentElement.image}`;    
     const video = `assets/photos/${currentElement.video}`;
     const title = currentElement.title
-    console.log(title);
+    // console.log(title);
+    //  const lightboxMedia = document.querySelector(".lightbox_container");
     // let mediaSplit = null;
-    // //  console.log(title);
-    // //  console.log(videos);
-    // if (videos.split('.').slice(-1)[0]=='mp4'){
-    //  mediaSplit = document.createElement( 'video' );
-    // mediaSplit.classList.add("lightbox-media__video")
-    // mediaSplit.setAttribute("src", videos)
+    // //   console.log(picture);
+    // if (video.split('.').slice(-1)[0]=='mp4'){
+    // //  document.querySelector(".lightbox-media-video").src = video;
+    // mediaSplit = document.createElement( 'video' );
+    // mediaSplit.classList.add("lightbox-media-video")
+    // mediaSplit.setAttribute("src", video)
     // mediaSplit.setAttribute("controls", "controls")
+    
     // }
+   
     // else{
-    //  mediaSplit = document.createElement( 'img' );
-    // mediaSplit.classList.add("lightbox-media__picture")
-    // mediaSplit.setAttribute("src", picture)
-    // }
-    document.querySelector(".lightbox-media-image").src = picture;
-    //  document.querySelector(".lightbox-media-video").src = video;
+    //     mediaSplit = document.createElement( 'img' );
+    //     mediaSplit.classList.add("lightbox-media-picture")
+        // mediaSplit.setAttribute("src", picture)
+       
+     document.querySelector(".lightbox-media-picture").src = picture;
+    // lightboxMedia.appendChild(mediaSplit);
      document.querySelector(".lightbox_title").innerHTML = title;
     document.querySelector("#lightbox_bg").style.display = 'flex';
 }
