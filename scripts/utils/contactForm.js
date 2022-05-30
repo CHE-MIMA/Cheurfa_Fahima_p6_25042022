@@ -1,7 +1,22 @@
 document.getElementById('close-btn').addEventListener('click', function(){
 closeModalContact();
 });
-const Modal = document.querySelector("#contact_modal");
+window.addEventListener("keyup", (e)=>{
+  console.log(e.key);
+  switch(e.key){
+      case "Escape":
+         closeModalContact();
+          break;
+  }
+});
+const photographeContact = document.querySelector("#contact_modal");
+ function displayModalContact(){
+  photographeContact.style.display ='block'; 
+}; 
+function closeModalContact(){
+photographeContact.style.display ='none'; 
+}; 
+
 //DOM elements (Variables)
 const prenom = document.getElementById('first');
 const errorprenom = document.getElementById('errorprenom')
@@ -25,14 +40,11 @@ const errormessage = document.getElementById('errormessage');
       errorprenom.innerHTML = "Veuillez entrer votre prenom.";
       prenom.style.border = "2px solid red";
       champErreur++;
-  
-  
     } else {
       errorprenom.innerHTML = "";
       prenom.style.border = "0px";
     }
     //validation nom
-  
     if (nomValue.length <2 ||!pattern.test(nomValue)){
     errornom.innerHTML = "Veuillez entrer votre nom.";
     nom.style.border = "2px solid red";
@@ -53,9 +65,7 @@ const errormessage = document.getElementById('errormessage');
     erroremail.innerHTML = "";
     email.style.border = "0px";
   }
-  
   // //  // validation massage
-  
   if (messageValue.length <2) {
     errormessage.innerHTML = "veuillez entrer votre message";
     message.style.border = "2px solid red";
@@ -64,7 +74,6 @@ const errormessage = document.getElementById('errormessage');
   else {
     errormessage.innerHTML = "";
     message.style.border = "0px";
-  
   }
   if (champErreur == 0) {
     console.log(nom.value+' '+prenom.value);
@@ -72,8 +81,7 @@ const errormessage = document.getElementById('errormessage');
     console.log(message.value);
     document.getElementById('form').reset();
   }
-
-    });
+ });
   
     
   

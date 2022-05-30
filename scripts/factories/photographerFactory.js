@@ -66,8 +66,7 @@ function photographerFactory(data) {
   contactButton.setAttribute("id", "contact-button")
   contactButton.addEventListener('click', function(){
     displayModalContact();
-});
-
+  });
  // Creation nom dans la modal de contact
 const textContact = document.querySelector('.modal-contact_title');
 

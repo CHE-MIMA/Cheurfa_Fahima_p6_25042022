@@ -17,6 +17,18 @@
       <div class="photograph-header">
         <!-- <button class="contact-button" onclick="displayModal()">Contactez-moi</button> -->
       </div>
+      <div id="filtres">
+        <label id="filtres-label" for="filtres-label-container">Trier par
+          <div id="filtres-container"> 
+            <button id="current-option">Popularité</button>
+            <div class = "list-option"> 
+              <div id="list-option-popularity">Popularité</div> 
+              <div id="list-option-date">Date</div>
+              <div id="list-option-title">Titre</div>
+            </div>
+          </div>
+        </label> 
+      </div>
     </main>
     <div  id="contact_modal">
 			<div class="modal">
@@ -51,14 +63,16 @@
 
          <div class="lightbox_previous"> &lt;</div>
           <div class="lightbox_container">
-              <img class="lightbox-media-picture"></img>
-              <!-- <video class="lightbox-media-video"></video> -->
-              <h2 class="lightbox_title"></h2>
+            <img id="lightbox-media-picture" class="lightbox-media"></img>
+            <video id="lightbox-media-video" class="lightbox-media" controls="control"></video>
+            <h2 class="lightbox_title"></h2>
           </div> 
+          <!-- <figure id="lightbox-media">
+            <figcaption class="lightbox_title"></figcaption> >
+          </figure> -->
           <div class="lightbox_next"> &gt;</div>
           <div class="lightbox_close"> &#215; </div>  
         </div>
-       
       </div> 
     <footer class="photograph-baniere"></footer>
     <script src="/scripts/factories/photographerFactory.js"></script>

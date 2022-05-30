@@ -43,12 +43,12 @@ document.querySelector("#lightbox_bg").addEventListener("click", (e)=>{
         close();
     }
 });
-window.addEventListener("keyup", (e)=>{
+window.addEventListener("keyup",(e)=>{
     console.log(e.key);
     switch(e.key){
-        case "Enter":
-            display();
-            break;
+        // case "Enter":
+        //     display();
+        //     break;
         case "ArrowRight":
         next();
         break;
@@ -67,32 +67,28 @@ return medias.find(element => element.id == id);
 function display(){
     const picture = `assets/photos/${currentElement.image}`;    
     const video = `assets/photos/${currentElement.video}`;
-    const title = currentElement.title
-    // console.log(title);
-    //  const lightboxMedia = document.querySelector(".lightbox_container");
-    // let mediaSplit = null;
-    // //   console.log(picture);
-    // if (video.split('.').slice(-1)[0]=='mp4'){
-    // //  document.querySelector(".lightbox-media-video").src = video;
-    // mediaSplit = document.createElement( 'video' );
-    // mediaSplit.classList.add("lightbox-media-video")
-    // mediaSplit.setAttribute("src", video)
-    // mediaSplit.setAttribute("controls", "controls")
-    
-    // }
+    const title = currentElement.title;
    
-    // else{
-    //     mediaSplit = document.createElement( 'img' );
-    //     mediaSplit.classList.add("lightbox-media-picture")
-        // mediaSplit.setAttribute("src", picture)
-       
-     document.querySelector(".lightbox-media-picture").src = picture;
-    // lightboxMedia.appendChild(mediaSplit);
-     document.querySelector(".lightbox_title").innerHTML = title;
+    // console.log(title);
+      console.log(picture);
+    console.log(`${currentElement.image}`)
+    if (`${currentElement.image}`!='undefined'){
+        document.querySelector("#lightbox-media-picture").style.display = 'block';
+        document.querySelector("#lightbox-media-video").style.display = 'none';
+        document.querySelector("#lightbox-media-picture").src = picture;
+        document.querySelector(".lightbox_title").innerHTML = title;
+        
+    }else {
+        document.querySelector("#lightbox-media-video").style.display = 'block';
+        document.querySelector("#lightbox-media-picture").style.display = 'none';
+        document.querySelector("#lightbox-media-video").src = video;
+        document.querySelector(".lightbox_title").innerHTML = title;
+        }
+    
     document.querySelector("#lightbox_bg").style.display = 'flex';
-}
+    }
 function close(){
     document.querySelector("#lightbox_bg").style.display = 'none';  
 }
 return {mediaList, show, next, previous, manageEvent,getElementById,display,close}
-} 
+}
