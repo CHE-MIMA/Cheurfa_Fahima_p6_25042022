@@ -18,7 +18,7 @@ function mediaFactory(media) {
        mediaSplit = document.createElement( 'video' );
       mediaSplit.classList.add("photograph-media__video")
       mediaSplit.setAttribute("src", videos)
-      mediaSplit.setAttribute("controls", "controls")
+      // mediaSplit.setAttribute("controls", "controls")
       }
       else{
        mediaSplit = document.createElement( 'img' );
@@ -71,3 +71,5 @@ function mediaFactory(media) {
     return {photographerId, id, title, image, video, likes, date, getUserMediaDOM }
 }
 
+// listMedia.sort((a, b) => (a.likes > b.likes) ? 1 : -1)
+const mediaList =  medias;

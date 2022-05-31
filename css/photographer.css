@@ -1,7 +1,7 @@
 .photograph-header {
     background-color: #FAFAFA;
     height: 250px;
-    margin: 0 100px;
+    margin: 50px 100px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -31,17 +31,17 @@ color: #D3573C;
 }
 .contact_button {
     font-size: 19px;
-    font-weight: bold;
+    font-weight: 600;
     color: white;
     padding: 7px;
     width: 170px;
     height: 60px;
     border: none;
     background-color: #901C1C;
-    border-radius: 5px;
+    border-radius: 7px;
     cursor: pointer;
     margin-top: 50px;
-    font-Weight: 600;  
+    
 }
 .contact_button:hover
 {
@@ -70,7 +70,7 @@ color: #D3573C;
     justify-content: space-between;
     padding: 25px;
     margin: auto;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 .modal header {
     justify-content: space-between;
@@ -125,7 +125,7 @@ form input {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 40px;
-        margin-top: 100px;
+        margin-top: 50px;
         margin-left: 100px;
         margin-right: 60px;  
 }
@@ -270,3 +270,65 @@ background-color: white;
      margin-top: -2px;
      font-weight: 400;
  }
+ #filtres-label{
+     
+     font-size: 20px;
+     font-weight: 600;
+     margin-left: 100px;
+ }
+ #current-option{
+    font-size: 19px;
+    color: white;
+    width: 145px;
+    height:35px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-left: 200px;
+    font-Weight: 550;
+    padding: 7px; 
+    margin-top: -40px;
+    display: flex;
+    justify-content: space-between; 
+    margin-right: 20px;
+    padding-top: 15px;
+    padding-left: 20px;
+ }
+ .list-option{
+     display: flex;
+     flex-direction: column;
+     font-size: 19px;
+     color: white;
+     width: 172px;
+     height: 160px;
+     background-color: #901C1C;
+     border-radius: 7px;
+     cursor: pointer;
+     margin-left: 200px;
+     font-Weight: 550;
+     /* margin-top: -55px;  */
+     margin-top: 0.5px;
+ }
+ .index-option{
+    padding-left: 20px;
+    padding-top: 10px;
+ }
+ #list-option-popularity{
+    padding-top: 15px; 
+    display: flex;
+    justify-content: space-between; 
+    margin-right: 20px; 
+ }
+ .souligne-option{
+    padding-left: 20px;
+    font-size: 15px;
+ }
+ .fa-angle-down{
+     font-size: 22px;
+     padding-right: 20px
+ }
+ .fa-angle-up{
+    font-size: 22px;
+    padding-right: 10px;
+}

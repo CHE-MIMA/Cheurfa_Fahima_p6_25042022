@@ -82,6 +82,7 @@ function display(){
         document.querySelector("#lightbox-media-video").style.display = 'block';
         document.querySelector("#lightbox-media-picture").style.display = 'none';
         document.querySelector("#lightbox-media-video").src = video;
+        // document.querySelector("#lightbox-media-video").setAttribute(controls, "controls");
         document.querySelector(".lightbox_title").innerHTML = title;
         }
     
