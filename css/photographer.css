@@ -1,7 +1,7 @@
 .photograph-header {
     background-color: #FAFAFA;
     height: 250px;
-    margin: 50px 100px;
+    margin: 30px 100px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -125,7 +125,7 @@ form input {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 40px;
-        margin-top: 50px;
+        margin-top: 140px;
         margin-left: 100px;
         margin-right: 60px;  
 }
@@ -270,6 +270,7 @@ background-color: white;
      margin-top: -2px;
      font-weight: 400;
  }
+ 
  #filtres-label{
      
      font-size: 20px;
@@ -296,7 +297,7 @@ background-color: white;
     padding-left: 20px;
  }
  .list-option{
-     display: flex;
+     
      flex-direction: column;
      font-size: 19px;
      color: white;
@@ -307,8 +308,9 @@ background-color: white;
      cursor: pointer;
      margin-left: 200px;
      font-Weight: 550;
-     /* margin-top: -55px;  */
-     margin-top: 0.5px;
+     /* margin-top: -40px;  */
+     margin-top: 1px;
+     
  }
  .index-option{
     padding-left: 20px;
@@ -326,9 +328,31 @@ background-color: white;
  }
  .fa-angle-down{
      font-size: 22px;
-     padding-right: 20px
+     padding-right: 20px;
  }
  .fa-angle-up{
     font-size: 22px;
     padding-right: 10px;
+} 
+ /* .media-select{
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 100px;
+    border: none;
 }
+#sort-medias{
+     font-size: 20px;
+     color: white;
+     width: 172px;
+     border: none;
+     height: 55px;
+     background-color: #901C1C;
+     border-radius: 7px;
+     cursor: pointer;
+     margin-left: 100px;
+     font-Weight: 550; 
+     display: block;
+     margin-top: -40px;
+     padding: 10px;
+}  */
+

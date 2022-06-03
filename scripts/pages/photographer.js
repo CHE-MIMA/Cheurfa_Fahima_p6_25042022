@@ -44,6 +44,15 @@ async function displayMedia(medias) {
     photographersMedia.appendChild(userMediaDOM);
     })   
 };
+async function displaySort(medias) {
+    const mediaSort = document.querySelector(".sort-media");
+     medias.forEach((media) => {
+     const photographerModel = mediaFactory(media);
+     photographerModel.getSortMediaDOM(medias);
+     
+});
+       
+};
 async function displayLightbox(medias){
     // await myProfilePhotographer;
     await medias;
@@ -52,6 +61,7 @@ async function displayLightbox(medias){
         functionLightbox.show(e.currentTarget.dataset.id)});
 });
 };
+
 async function init() {
     // Récupère les datas des profils par leurs id
     const data  = await getPhotographers();
@@ -69,6 +79,8 @@ async function init() {
 
     displayProfil(myProfilePhotographer);
     displayFooter(myProfilePhotographer);
+    // displayFiltres(medias);
+    displaySort(medias);
     displayMedia(medias);
     displayLightbox(medias); 
 };
