@@ -45,10 +45,11 @@ async function displayMedia(medias) {
     })   
 };
 async function displaySort(medias) {
-    const mediaSort = document.querySelector(".sort-media");
+    // const mediaSort = document.querySelector(".sort-media");
      medias.forEach((media) => {
      const photographerModel = mediaFactory(media);
      photographerModel.getSortMediaDOM(medias);
+     
      
 });
        
