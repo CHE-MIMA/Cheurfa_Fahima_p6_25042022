@@ -120,8 +120,8 @@ function mediaFactory(media) {
     
 
   sortlikes(medias);
-  sortdate(medias);
-  sorttitle(medias);
+  // sortdate(medias);
+  // sorttitle(medias);
  
 }
     return {photographerId, id, title, image, video, likes, date, getUserMediaDOM,getSortMediaDOM}
