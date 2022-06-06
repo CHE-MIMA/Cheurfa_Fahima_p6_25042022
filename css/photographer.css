@@ -297,24 +297,23 @@ background-color: white;
     padding-left: 20px;
  }
  .list-option{
-     
      flex-direction: column;
      font-size: 19px;
      color: white;
      width: 172px;
-     height: 160px;
+     height: 150px;
      background-color: #901C1C;
      border-radius: 7px;
      cursor: pointer;
      margin-left: 200px;
      font-Weight: 550;
-     /* margin-top: -40px;  */
-     margin-top: 1px;
-     
+     margin-top: -40px;
+    display: none;   
  }
  .index-option{
     padding-left: 20px;
     padding-top: 10px;
+    
  }
  #list-option-popularity{
     padding-top: 15px; 
@@ -322,10 +321,7 @@ background-color: white;
     justify-content: space-between; 
     margin-right: 20px; 
  }
- .souligne-option{
-    padding-left: 20px;
-    font-size: 15px;
- }
+
  .fa-angle-down{
      font-size: 22px;
      padding-right: 20px;
@@ -334,25 +330,10 @@ background-color: white;
     font-size: 22px;
     padding-right: 10px;
 } 
- /* .media-select{
-    font-size: 20px;
-    font-weight: 600;
-    margin-left: 100px;
-    border: none;
+hr {
+    width: 75%;
+    color:white;
+    font-size: 1px;
+    margin-top: 10px;
 }
-#sort-medias{
-     font-size: 20px;
-     color: white;
-     width: 172px;
-     border: none;
-     height: 55px;
-     background-color: #901C1C;
-     border-radius: 7px;
-     cursor: pointer;
-     margin-left: 100px;
-     font-Weight: 550; 
-     display: block;
-     margin-top: -40px;
-     padding: 10px;
-}  */
 

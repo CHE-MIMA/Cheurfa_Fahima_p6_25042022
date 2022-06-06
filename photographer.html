@@ -11,18 +11,20 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" alt="logo" class="logo" />
+      <a href="http://127.0.0.1:5500/index.html" alt="Fisheye Home Page">
+        <img src="assets/images/logo.png" alt="Fisheye Home Page"  class="logo">
+       </a>
     </header>
     <main id="main">
       <div class="photograph-header">
         <!-- <button class="contact-button" onclick="displayModal()">Contactez-moi</button> -->
       </div>
-    <div class="sort-media"></div>
+      <div class="sort-media"></div>
       <!-- <div id="filtres">
 
       </div> -->
-    </main>
-    <div  id="contact_modal">
+   
+      <div  id="contact_modal">
 			<div class="modal">
 				<header>
           <p class= "modal-contact_title" > </p>
@@ -43,11 +45,11 @@
             <input type="text" id="message"/>
             <span class="error" id="errormessage"></span>
 					</div>
-          <button id="submit-btn" role="submit" class="contact_button">Envoyer</button>
+          <button id="submit-btn" role="send" class="contact_button">Envoyer</button>
 				</form>
 			</div>
-		</div>
-    <div class= "photograph-media"></div>
+		 </div>
+     <div class= "photograph-media"></div>
      <!--lightbox-->
       <div id="lightbox_bg">
        
@@ -64,7 +66,8 @@
           <div class="lightbox_close"> &#215; </div>  
         </div>
       </div> 
-    <footer class="photograph-baniere"></footer>
+     <footer class="photograph-baniere"></footer>
+    </main>
     <script src="scripts/factories/photographerFactory.js"></script>
     <script src="scripts/factories/mediaFactory.js"></script>
     <script src="scripts/pages/photographer.js"></script>

@@ -37,7 +37,9 @@ async function displayProfil(myProfilePhotographer) {
     }; 
 
 async function displayMedia(medias) {
+    
     const photographersMedia = document.querySelector(".photograph-media");
+    photographersMedia.innerHTML="";
     medias.forEach((media) => {
     const photographerModel = mediaFactory(media);
     const userMediaDOM = photographerModel.getUserMediaDOM();
@@ -48,12 +50,10 @@ async function displaySort(medias) {
     // const mediaSort = document.querySelector(".sort-media");
      medias.forEach((media) => {
      const photographerModel = mediaFactory(media);
-     photographerModel.getSortMediaDOM(medias);
-     
-     
-});
-       
+     photographerModel.getSortMediaDOM(medias);   
+});       
 };
+
 async function displayLightbox(medias){
     // await myProfilePhotographer;
     await medias;
@@ -80,8 +80,55 @@ async function init() {
 
     displayProfil(myProfilePhotographer);
     displayFooter(myProfilePhotographer);
+   
     // displayFiltres(medias);
-    displaySort(medias);
+    displaySort(medias); 
+   let currentOption = document.getElementById("current-option")
+   let listOption = document.querySelector(".list-option")
+   let  listOptionPopularity = document.querySelector("#list-option-popularity")
+    currentOption.addEventListener('click', ()=>{
+     listOption.style.display = 'flex';
+     currentOption.style.display = 'none';
+     });
+     
+       listOptionPopularity.addEventListener('click', ()=>{
+         listOption.style.display = 'none';
+         currentOption.style.display = 'flex';
+         sortlikes(medias); 
+       });
+
+       let  listOptionDate = document.querySelector("#list-option-date");
+       listOptionDate.addEventListener('click', ()=>{
+        listOption.style.display = 'none';
+        currentOption.style.display = 'flex';
+        sortdate(medias);
+      });
+
+       let  listOptionTitle = document.querySelector("#list-option-title"); 
+       listOptionTitle.addEventListener('click', ()=>{
+        listOption.style.display = 'none';
+        currentOption.style.display = 'flex';
+        sorttitle(medias);
+      });
+    function sortlikes(medias){   
+         
+          medias.sort((a, b) => (a.likes < b.likes) ? 1 : -1);
+        //  let parentMedia =  document.getElementsByClassName('photograph-media');
+        //  parentMedia.innerHTML = "";
+         displayMedia(medias);
+        
+      } 
+         function sortdate(medias){
+          medias.sort((a, b) => (a.date < b.date) ? 1 : -1);
+          displayMedia(medias);
+      
+    }
+          function sorttitle(medias){
+          medias.sort((a, b) => (a.title > b.title) ? 1 : -1)
+          displayMedia(medias);
+          }
+ 
+
     displayMedia(medias);
     displayLightbox(medias); 
 };

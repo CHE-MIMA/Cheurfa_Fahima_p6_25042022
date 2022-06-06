@@ -8,10 +8,12 @@ function photographerFactory(data) {
       // lien de chaque photographe
         const lien = document.createElement ('a');
         lien.setAttribute("href", `photographer.html?id=${id}`)
+        lien.setAttribute("alt", name)
         article.appendChild(lien);
       //  image 
-        const img = document.createElement( 'img' );
+        const img = document.createElement('img');
         img.setAttribute("src", picture);
+        img.setAttribute("alt", "")
         lien.appendChild(img);
       // nom
       
@@ -40,7 +42,7 @@ function photographerFactory(data) {
   const img = document.createElement( 'img' );
   img.classList.add("photograph-header__picture")
   img.setAttribute("src", picture)
-  
+  img.setAttribute("alt", name)
   const profileDiv = document.createElement('div');
   profileDiv.classList.add('photograph-header__profile');
 
@@ -64,6 +66,7 @@ function photographerFactory(data) {
   contactButton.textContent = 'Contactez-moi';
   contactButton.classList.add("contact_button");
   contactButton.setAttribute("id", "contact-button")
+  contactButton.setAttribute("aria-label", "Contect Me")
   contactButton.addEventListener('click', function(){
     displayModalContact();
   });
@@ -101,6 +104,7 @@ function getFooterDOM(){
   heart.classList.add("fas");
   heart.classList.add("fa-heart");
   heart.classList.add("photograph-baniere__heart");
+  heart.setAttribute("aria-label", "likes")
   baniere.appendChild(heart);
   // baniere prix dom
   const priceBaniere = document.createElement ('h5');
