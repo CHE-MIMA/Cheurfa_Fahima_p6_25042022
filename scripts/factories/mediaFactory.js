@@ -9,7 +9,7 @@ function mediaFactory(media) {
       const mediaCards = document.createElement('div');
       mediaCards.classList.add('media-cards');
       mediaCards.setAttribute("data-id", id);
-      mediaCards.setAttribute("aria-label", `${title} closeup view`);
+      // mediaCards.setAttribute("aria-label", `${title} closeup view`);
 
       // média du profil separateur 
       let mediaSplit = null;
@@ -19,6 +19,7 @@ function mediaFactory(media) {
        mediaSplit = document.createElement( 'video' );
       mediaSplit.classList.add("photograph-media__video")
       mediaSplit.setAttribute("src", videos)
+      mediaCards.setAttribute("aria-label", `${title} closeup view`);
       
       // mediaSplit.setAttribute("controls", "controls")
       }
@@ -26,7 +27,7 @@ function mediaFactory(media) {
        mediaSplit = document.createElement( 'img' );
       mediaSplit.classList.add("photograph-media__picture")
       mediaSplit.setAttribute("src", picture)
-     
+      mediaSplit.setAttribute("alt", `${title} closeup view`)
       }
 
       const mediaProfileDiv = document.createElement( 'div' );
@@ -76,12 +77,13 @@ function mediaFactory(media) {
        console.log(totalLiks);
        document.querySelector('.total-likes').innerText = totalLiks; 
       });
+       // calcul total liks
       console.log(likes);
       totalLiks+= likes;
       console.log(totalLiks);
       return mediaProfile;
     } 
-    // calcul total liks
+   
    
     function getSortMediaDOM(medias){
       const mediaSort = document.querySelector('.sort-media');

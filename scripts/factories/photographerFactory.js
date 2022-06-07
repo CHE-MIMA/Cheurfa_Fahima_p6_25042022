@@ -66,7 +66,7 @@ function photographerFactory(data) {
   contactButton.textContent = 'Contactez-moi';
   contactButton.classList.add("contact_button");
   contactButton.setAttribute("id", "contact-button")
-  contactButton.setAttribute("aria-label", `Contactez moi ${name}`)
+  contactButton.setAttribute("aria-label", `Contactez moi`)
   contactButton.addEventListener('click', function(){
     displayModalContact();
   });
