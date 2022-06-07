@@ -3,8 +3,8 @@ function photographerFactory(data) {
     const picture = `assets/photographers/${portrait}`;
 
     function getUserCardDOM() {
-        const article = document.createElement('article');
-        
+        const article = document.createElement('section');
+        article.setAttribute("aria-label", name)
       // lien de chaque photographe
         const lien = document.createElement ('a');
         lien.setAttribute("href", `photographer.html?id=${id}`)
@@ -13,7 +13,7 @@ function photographerFactory(data) {
       //  image 
         const img = document.createElement('img');
         img.setAttribute("src", picture);
-        img.setAttribute("alt", "")
+        img.setAttribute("alt", name)
         lien.appendChild(img);
       // nom
       
@@ -66,7 +66,7 @@ function photographerFactory(data) {
   contactButton.textContent = 'Contactez-moi';
   contactButton.classList.add("contact_button");
   contactButton.setAttribute("id", "contact-button")
-  contactButton.setAttribute("aria-label", "Contect Me")
+  contactButton.setAttribute("aria-label", `Contactez moi ${name}`)
   contactButton.addEventListener('click', function(){
     displayModalContact();
   });
@@ -104,7 +104,7 @@ function getFooterDOM(){
   heart.classList.add("fas");
   heart.classList.add("fa-heart");
   heart.classList.add("photograph-baniere__heart");
-  heart.setAttribute("aria-label", "likes")
+ 
   baniere.appendChild(heart);
   // baniere prix dom
   const priceBaniere = document.createElement ('h5');

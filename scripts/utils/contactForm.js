@@ -1,3 +1,28 @@
+const photographeContact = document.querySelector("#contact_modal");
+photographeContact.innerHTML =`<div class="modal">
+<header>
+  <p class= "modal-contact_title" > </p>
+  <img id="close-btn" src="assets/icons/close.svg" alt="close modale contact"  />
+</header>
+<form id="form">
+  <div>
+    <label for="first">Prénom</label>
+    <input type="text" id="first"/>
+    <span class="error" id="errorprenom"></span>
+    <label for="last">Nom</label>
+    <input type="text" id="last"/>
+    <span class="error" id="errornom"></span>
+    <label for="email">Email</label>
+    <input type="email" id="email"/>
+    <span class="error" id="erroremail"></span>
+    <label for="message">Votre message</label>
+    <input type="text" id="message"/>
+    <span class="error" id="errormessage"></span>
+  </div>
+  <button id="submit-btn" role="submit" aria-label="envoyer" class="contact_button">Envoyer</button>
+</form>
+</div>`;
+
 document.getElementById('close-btn').addEventListener('click', function(){
 closeModalContact();
 });
@@ -9,10 +34,11 @@ window.addEventListener("keyup", (e)=>{
           break;
   }
 });
-const photographeContact = document.querySelector("#contact_modal");
+
  function displayModalContact(){
   photographeContact.style.display ='block'; 
 }; 
+
 function closeModalContact(){
 photographeContact.style.display ='none'; 
 }; 

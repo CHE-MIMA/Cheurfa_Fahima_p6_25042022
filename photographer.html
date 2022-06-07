@@ -16,54 +16,20 @@
        </a>
     </header>
     <main id="main">
-      <div class="photograph-header">
-        <!-- <button class="contact-button" onclick="displayModal()">Contactez-moi</button> -->
-      </div>
+      <div class="photograph-header"></div>
       <div class="sort-media"></div>
-      <!-- <div id="filtres">
-
-      </div> -->
-   
-      <div  id="contact_modal">
-			<div class="modal">
-				<header>
-          <p class= "modal-contact_title" > </p>
-          <img id="close-btn" src="assets/icons/close.svg" alt="close"  />
-        </header>
-				<form id="form">
-					<div>
-					  <label for="first">Prénom</label>
-            <input type="text" id="first"/>
-            <span class="error" id="errorprenom"></span>
-            <label for="last">Nom</label>
-            <input type="text" id="last"/>
-            <span class="error" id="errornom"></span>
-            <label for="email">Email</label>
-            <input type="email" id="email"/>
-            <span class="error" id="erroremail"></span>
-            <label for="message">Votre message</label>
-            <input type="text" id="message"/>
-            <span class="error" id="errormessage"></span>
-					</div>
-          <button id="submit-btn" role="send" class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		 </div>
+      <div  id="contact_modal"></div>
      <div class= "photograph-media"></div>
      <!--lightbox-->
       <div id="lightbox_bg">
-       
-        <div class="lightbox_content">
-
-         <div class="lightbox_previous"> &lt;</div>
+       <div class="lightbox_content" aria-label="media closeup view" >
+         <div aria-label="image précédente" class="lightbox_previous"> &lt;</div>
           <div class="lightbox_container">
-            <img id="lightbox-media-picture" alt="lightbox-media-picture" class="lightbox-media"></img>
-            <video id="lightbox-media-video" class="lightbox-media" controls="control"></video>
-            <h2 class="lightbox_title"></h2>
-          </div> 
-        
-          <div class="lightbox_next"> &gt;</div>
-          <div class="lightbox_close"> &#215; </div>  
+            <img id="lightbox-media-picture" alt = "" class="lightbox-media"></img>
+            <video id="lightbox-media-video"  alt = "" class="lightbox-media" controls="control"></video>
+            <h2 class="lightbox_title"></h2> </div> 
+          <div aria-label="image suivante" class="lightbox_next"> &gt;</div>
+          <div aria-label="fermer modale" class="lightbox_close"> &#215; </div>  
         </div>
       </div> 
      <footer class="photograph-baniere"></footer>

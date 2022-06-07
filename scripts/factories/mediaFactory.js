@@ -9,6 +9,7 @@ function mediaFactory(media) {
       const mediaCards = document.createElement('div');
       mediaCards.classList.add('media-cards');
       mediaCards.setAttribute("data-id", id);
+    
 
       // média du profil separateur 
       let mediaSplit = null;
@@ -18,12 +19,14 @@ function mediaFactory(media) {
        mediaSplit = document.createElement( 'video' );
       mediaSplit.classList.add("photograph-media__video")
       mediaSplit.setAttribute("src", videos)
+      mediaSplit.setAttribute("aria-label", `${title} closeup view`);
       // mediaSplit.setAttribute("controls", "controls")
       }
       else{
        mediaSplit = document.createElement( 'img' );
       mediaSplit.classList.add("photograph-media__picture")
       mediaSplit.setAttribute("src", picture)
+      mediaSplit.setAttribute("aria-label", `${title} closeup view`);
       }
 
       const mediaProfileDiv = document.createElement( 'div' );
@@ -40,11 +43,20 @@ function mediaFactory(media) {
       const liks = document.createElement( 'span' );
       liks.textContent = likes;
       liks.classList.add("photograph-media__liks");
-      
+
+      // const divLikes = document.createElement('div');
+      // divLikes.classList.add("div-likes")
       const  heart = document.createElement('i');
         heart.classList.add("fas");
         heart.classList.add("fa-heart");
-
+        heart.setAttribute("aria-label", "likes");
+        heart.setAttribute("title", "likes");
+        
+        // const titleLiks = document.createElement( 'span' );
+        // titleLiks.textContent = "likes";
+        // titleLiks.classList.add("title_likes");
+        // titleLiks.setAttribute("aria-hidden", "true");
+        
       
       mediaProfile.appendChild(mediaCards);
       mediaCards.appendChild(mediaSplit);
@@ -53,6 +65,8 @@ function mediaFactory(media) {
       mediaProfileDiv.appendChild(mediaProfileDivLiks)
       mediaProfileDivLiks.appendChild(liks);
       mediaProfileDivLiks.appendChild(heart);
+      // divLikes.appendChild(heart);
+      // divLikes.appendChild(titleLiks);
 
       // click sur les liks
       heart.addEventListener("click", function(){
