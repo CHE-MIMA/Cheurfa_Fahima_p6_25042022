@@ -9,7 +9,7 @@ function mediaFactory(media) {
       const mediaCards = document.createElement('div');
       mediaCards.classList.add('media-cards');
       mediaCards.setAttribute("data-id", id);
-    
+      mediaCards.setAttribute("aria-label", `${title} closeup view`);
 
       // média du profil separateur 
       let mediaSplit = null;
@@ -19,14 +19,14 @@ function mediaFactory(media) {
        mediaSplit = document.createElement( 'video' );
       mediaSplit.classList.add("photograph-media__video")
       mediaSplit.setAttribute("src", videos)
-      mediaSplit.setAttribute("aria-label", `${title} closeup view`);
+      
       // mediaSplit.setAttribute("controls", "controls")
       }
       else{
        mediaSplit = document.createElement( 'img' );
       mediaSplit.classList.add("photograph-media__picture")
       mediaSplit.setAttribute("src", picture)
-      mediaSplit.setAttribute("aria-label", `${title} closeup view`);
+     
       }
 
       const mediaProfileDiv = document.createElement( 'div' );

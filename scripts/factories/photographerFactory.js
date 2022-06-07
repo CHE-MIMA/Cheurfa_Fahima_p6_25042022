@@ -3,7 +3,7 @@ function photographerFactory(data) {
     const picture = `assets/photographers/${portrait}`;
 
     function getUserCardDOM() {
-        const article = document.createElement('section');
+        const article = document.createElement('article');
         article.setAttribute("aria-label", name)
       // lien de chaque photographe
         const lien = document.createElement ('a');
