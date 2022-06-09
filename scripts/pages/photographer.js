@@ -40,6 +40,7 @@ async function displayMedia(medias) {
     
     const photographersMedia = document.querySelector(".photograph-media");
     photographersMedia.innerHTML="";
+    totalLiks = 0;
     medias.forEach((media) => {
     const photographerModel = mediaFactory(media);
     const userMediaDOM = photographerModel.getUserMediaDOM();
