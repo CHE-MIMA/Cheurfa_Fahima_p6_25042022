@@ -102,11 +102,10 @@ function mediaFactory(media) {
       </div>
      </div>
     </label>`;
-    
-    console.log(medias)
+  //  console.log(medias);
     }
-
-    return {photographerId, id, title, image, video, likes, date, getUserMediaDOM,getSortMediaDOM}
+  
+    return {photographerId, id, title, image, video, likes, date,getSortMediaDOM, getUserMediaDOM,}
 }
 
 

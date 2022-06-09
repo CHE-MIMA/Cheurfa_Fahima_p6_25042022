@@ -48,6 +48,7 @@ async function displayMedia(medias) {
 };
 async function displaySort(medias) {
     // const mediaSort = document.querySelector(".sort-media");
+    
      medias.forEach((media) => {
      const photographerModel = mediaFactory(media);
      photographerModel.getSortMediaDOM(medias);   
@@ -81,19 +82,29 @@ async function init() {
     displayProfil(myProfilePhotographer);
     displayFooter(myProfilePhotographer);
    
-    // displayFiltres(medias);
-    displaySort(medias); 
+    
+ 
+
+    displayMedia(medias);
+    
+    displayLightbox(medias); 
+
+    // displayLikes(medias);
+    displaySort(medias);
+  
    let currentOption = document.getElementById("current-option")
    let listOption = document.querySelector(".list-option")
    let  listOptionPopularity = document.querySelector("#list-option-popularity")
-    currentOption.addEventListener('click', ()=>{
+    
+   currentOption.addEventListener('click', ()=>{
      listOption.style.display = 'flex';
      currentOption.style.display = 'none';
      });
      
        listOptionPopularity.addEventListener('click', ()=>{
-         listOption.style.display = 'none';
+        listOption.style.display = 'none';
          currentOption.style.display = 'flex';
+         currentOption.innerHTML = "Popularité";
          sortlikes(medias); 
        });
 
@@ -101,6 +112,8 @@ async function init() {
        listOptionDate.addEventListener('click', ()=>{
         listOption.style.display = 'none';
         currentOption.style.display = 'flex';
+        currentOption.innerHTML = "Date"
+
         sortdate(medias);
       });
 
@@ -108,29 +121,29 @@ async function init() {
        listOptionTitle.addEventListener('click', ()=>{
         listOption.style.display = 'none';
         currentOption.style.display = 'flex';
+        currentOption.innerHTML = "Title"
         sorttitle(medias);
       });
     function sortlikes(medias){   
          
           medias.sort((a, b) => (a.likes < b.likes) ? 1 : -1);
-        //  let parentMedia =  document.getElementsByClassName('photograph-media');
-        //  parentMedia.innerHTML = "";
-         displayMedia(medias);
+        displayMedia(medias);
+         displayLightbox(medias);
         
       } 
          function sortdate(medias){
           medias.sort((a, b) => (a.date < b.date) ? 1 : -1);
           displayMedia(medias);
-      
+          displayLightbox(medias);
+          
+          
     }
           function sorttitle(medias){
           medias.sort((a, b) => (a.title > b.title) ? 1 : -1)
           displayMedia(medias);
+          displayLightbox(medias);
+          
           }
- 
-
-    displayMedia(medias);
-    displayLightbox(medias); 
 };
 init();
 
