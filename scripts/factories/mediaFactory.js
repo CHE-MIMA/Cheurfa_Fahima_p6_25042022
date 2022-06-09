@@ -89,11 +89,11 @@ function mediaFactory(media) {
       const mediaSort = document.querySelector('.sort-media');
     mediaSort.innerHTML = `<label id="filtres-label" for="filtres-label-container">Trier par
     <div id="filtres-container"> 
-        <div  id="current-option" > Popularité 
-        <i class="fa fa-angle-down"></i></div>
-        <div class = "list-option"> 
+        <div role= "button" aria-haspopup="listbox" aria-expanded id="current-option" > Popularité 
+        <i aria-label="ouvrir" tilte="ouvrir" class="fa fa-angle-down"></i></div>
+        <div role= "listbox" id="filtres-label-container" aria-selected aria-activedescendant class="list-option"> 
           <div role="option" class="index-option" id="list-option-popularity"> Popularité
-          <i class="fa fa-angle-up"></i> 
+          <i aria-label="fermer" tilte="fermer" class="fa fa-angle-up"></i> 
         </div> 
           <hr/>
           <div class="index-option" role="option" id="list-option-date">Date</div>

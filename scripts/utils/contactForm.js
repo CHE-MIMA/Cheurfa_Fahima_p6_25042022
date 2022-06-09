@@ -1,5 +1,5 @@
 const photographeContact = document.querySelector("#contact_modal");
-photographeContact.innerHTML =`<div aria-lebelledby="contact-title" class="modal">
+photographeContact.innerHTML =`<div for="contact-title" class="modal">
 <header>
   <p class= "modal-contact_title" id="contact-title"> </p>
   <img id="close-btn" src="assets/icons/close.svg" alt="close modale contact"  />
