@@ -8,12 +8,11 @@ function photographerFactory(data) {
       // lien de chaque photographe
         const lien = document.createElement ('a');
         lien.setAttribute("href", `photographer.html?id=${id}`)
-        lien.setAttribute("alt", name)
         article.appendChild(lien);
       //  image 
         const img = document.createElement('img');
         img.setAttribute("src", picture);
-        img.setAttribute("alt", name)
+        img.setAttribute("alt", `${name}profil`)
         lien.appendChild(img);
       // nom
       
@@ -47,9 +46,9 @@ function photographerFactory(data) {
   profileDiv.classList.add('photograph-header__profile');
 
   // nom du  profile
-  const h2 = document.createElement( 'h2' );
-  h2.textContent = name;
-  h2.classList.add("photograph-header__name");
+  const h1 = document.createElement( 'h1' );
+  h1.textContent = name;
+  h1.classList.add("photograph-header__name");
 
   // ville et pays du profile
   const locationSpan = document.createElement( 'div' );
@@ -79,7 +78,7 @@ function createInfoModal(){
 };
 textContact.innerHTML = createInfoModal(); 
 
-  profileDiv.appendChild(h2);
+  profileDiv.appendChild(h1);
   profileDiv.appendChild(locationSpan);
   profileDiv.appendChild(taglineSpan);
   profile.appendChild(profileDiv);
@@ -104,10 +103,9 @@ function getFooterDOM(){
   heart.classList.add("fas");
   heart.classList.add("fa-heart");
   heart.classList.add("photograph-baniere__heart");
- 
   baniere.appendChild(heart);
   // baniere prix dom
-  const priceBaniere = document.createElement ('h5');
+  const priceBaniere = document.createElement ('h2');
   priceBaniere.textContent = `${price} € / jour`;
   priceBaniere.classList.add("photograph-baniere__price");
   baniere.appendChild(priceBaniere);

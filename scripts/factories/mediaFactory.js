@@ -19,7 +19,8 @@ function mediaFactory(media) {
        mediaSplit = document.createElement( 'video' );
       mediaSplit.classList.add("photograph-media__video")
       mediaSplit.setAttribute("src", videos)
-      mediaCards.setAttribute("aria-label", `${title} closeup view`);
+      mediaSplit.setAttribute("autoplay", "false");
+      mediaSplit.setAttribute("aria-label", `${title} closeup view`);
       
       // mediaSplit.setAttribute("controls", "controls")
       }
@@ -68,8 +69,10 @@ function mediaFactory(media) {
       mediaProfileDivLiks.appendChild(heart);
       // divLikes.appendChild(heart);
       // divLikes.appendChild(titleLiks);
-
+      
       // click sur les liks
+      function listenHeart(){
+      
       heart.addEventListener("click", function(){
        media.likes++
        liks.textContent =`${media.likes}`;
@@ -81,24 +84,26 @@ function mediaFactory(media) {
       console.log(likes);
       totalLiks+= likes;
       console.log(totalLiks);
+    }
+    listenHeart();
       return mediaProfile;
     } 
    
    
     function getSortMediaDOM(medias){
       const mediaSort = document.querySelector('.sort-media');
-    mediaSort.innerHTML = `<label id="filtres-label" for="filtres-label-container">Trier par
+    mediaSort.innerHTML = `<label id="filtres-label" aria-labbeledby="current-option">Trier par
     <div id="filtres-container"> 
         <div role= "button" aria-haspopup="listbox" aria-expanded id="current-option" > Popularité 
-        <i aria-label="ouvrir" tilte="ouvrir" class="fa fa-angle-down"></i></div>
-        <div role= "listbox" id="filtres-label-container" aria-selected aria-activedescendant class="list-option"> 
-          <div role="option" class="index-option" id="list-option-popularity"> Popularité
-          <i aria-label="fermer" tilte="fermer" class="fa fa-angle-up"></i> 
+        <i aria-label="ouvrir" title="ouvrir" class="fa fa-angle-down"></i></div>
+        <div role= "listbox" aria-selected aria-activedescendant class="list-option"> 
+          <div role="button" class="index-option" id="list-option-popularity"> Popularité
+          <i aria-label="fermer" title="fermer" class="fa fa-angle-up"></i> 
         </div> 
           <hr/>
-          <div class="index-option" role="option" id="list-option-date">Date</div>
+          <div class="index-option" role="button" id="list-option-date">Date</div>
           <hr/>
-         <div class="index-option" role= "option"  id="list-option-title">Titre</div>
+         <div class="index-option" role= "button"  id="list-option-title">Titre</div>
       </div>
      </div>
     </label>`;

@@ -40,7 +40,7 @@ async function displayMedia(medias) {
     
     const photographersMedia = document.querySelector(".photograph-media");
     photographersMedia.innerHTML="";
-    totalLiks = 0;
+    totalLiks = 0; 
     medias.forEach((media) => {
     const photographerModel = mediaFactory(media);
     const userMediaDOM = photographerModel.getUserMediaDOM();
@@ -82,17 +82,10 @@ async function init() {
 
     displayProfil(myProfilePhotographer);
     displayFooter(myProfilePhotographer);
-   
-    
- 
-
     displayMedia(medias);
-    
     displayLightbox(medias); 
-
-    // displayLikes(medias);
+    
     displaySort(medias);
-  
    let currentOption = document.getElementById("current-option")
    let listOption = document.querySelector(".list-option")
    let  listOptionPopularity = document.querySelector("#list-option-popularity")
@@ -129,8 +122,8 @@ async function init() {
          
           medias.sort((a, b) => (a.likes < b.likes) ? 1 : -1);
         displayMedia(medias);
-         displayLightbox(medias);
-        
+         displayLightbox(sortlikes());
+        //  listenHeart();
       } 
          function sortdate(medias){
           medias.sort((a, b) => (a.date < b.date) ? 1 : -1);

@@ -202,6 +202,7 @@ color: black;
 .photograph-baniere__price{
     font-size: 20px;
     padding-right: 50px;
+    padding-top: 18px;
  }
  #lightbox_bg{
     position: fixed;
@@ -278,7 +279,7 @@ background-color: white;
      margin-left: 100px;
  }
  #current-option{
-    font-size: 19px;
+    font-size: 20px;
     color: white;
     width: 145px;
     height:35px;
@@ -296,9 +297,10 @@ background-color: white;
     padding-top: 15px;
     padding-left: 20px;
  }
+
  .list-option{
      flex-direction: column;
-     font-size: 19px;
+     font-size: 20px;
      color: white;
      width: 172px;
      height: 150px;
@@ -312,9 +314,9 @@ background-color: white;
  }
  .index-option{
     padding-left: 20px;
-    padding-top: 10px;
-    
+    padding-top: 10px;  
  }
+ 
  #list-option-popularity{
     padding-top: 15px; 
     display: flex;
@@ -325,6 +327,7 @@ background-color: white;
  .fa-angle-down{
      font-size: 22px;
      padding-right: 20px;
+     margin-top: 3px;
  }
  .fa-angle-up{
     font-size: 22px;
