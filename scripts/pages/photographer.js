@@ -62,8 +62,17 @@ async function displayLightbox(medias){
     const functionLightbox = createLightbox(medias);
      document.querySelectorAll(".media-cards").forEach(mediaDom => { mediaDom.addEventListener("click",(e)=>{
         functionLightbox.show(e.currentTarget.dataset.id)});
+    });     
+        document.querySelectorAll(".media-cards").forEach(mediaDom => { mediaDom.addEventListener("keydown",(e)=>{
+            switch(e.key) {
+                case "Enter":
+                    functionLightbox.show(e.currentTarget.dataset.id);
+                break;
+            }
+            // functionLightbox.show(e.currentTarget.dataset.id)});
+        });
 });
-};
+}
 
 async function init() {
     // Récupère les datas des profils par leurs id

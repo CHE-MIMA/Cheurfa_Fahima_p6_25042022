@@ -7,7 +7,7 @@ photographeContact.innerHTML =`<div for="contact-title" class="modal">
 <form id="form">
   <div>
     <label for="first">Prénom</label>
-    <input type="text" id="first"/>
+    <input tabindex ="0" type="text" id="first"/>
     <span class="error" id="errorprenom"></span>
     <label for="last">Nom</label>
     <input type="text" id="last"/>
@@ -26,12 +26,12 @@ photographeContact.innerHTML =`<div for="contact-title" class="modal">
 document.getElementById('close-btn').addEventListener('click', function(){
 closeModalContact();
 });
-window.addEventListener("keyup", (e)=>{
+document.addEventListener("keyup", (e)=>{
   console.log(e.key);
   switch(e.key){
       case "Escape":
          closeModalContact();
-          break;
+          break; 
   }
 });
 

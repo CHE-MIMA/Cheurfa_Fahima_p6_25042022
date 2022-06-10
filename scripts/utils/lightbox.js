@@ -43,12 +43,10 @@ document.querySelector("#lightbox_bg").addEventListener("click", (e)=>{
         close();
     }
 });
-window.addEventListener("keyup",(e)=>{
+document.querySelector(".photograph-media").addEventListener("keyup",(e)=>{
     console.log(e.key);
     switch(e.key){
-        // case "Enter":
-        //     display();
-        //     break;
+        
         case "ArrowRight":
         next();
         break;

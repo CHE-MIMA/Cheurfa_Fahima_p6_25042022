@@ -21,7 +21,7 @@ function mediaFactory(media) {
       mediaSplit.setAttribute("src", videos)
       mediaSplit.setAttribute("autoplay", "false");
       mediaSplit.setAttribute("aria-label", `${title} closeup view`);
-      
+      mediaSplit.setAttribute("tabindex", "0");
       // mediaSplit.setAttribute("controls", "controls")
       }
       else{
@@ -29,6 +29,7 @@ function mediaFactory(media) {
       mediaSplit.classList.add("photograph-media__picture")
       mediaSplit.setAttribute("src", picture)
       mediaSplit.setAttribute("alt", `${title} closeup view`)
+      mediaSplit.setAttribute("tabindex", "0");
       }
 
       const mediaProfileDiv = document.createElement( 'div' );
@@ -94,16 +95,16 @@ function mediaFactory(media) {
       const mediaSort = document.querySelector('.sort-media');
     mediaSort.innerHTML = `<label id="filtres-label" aria-labbeledby="current-option">Trier par
     <div id="filtres-container"> 
-        <div role= "button" aria-haspopup="listbox" aria-expanded id="current-option" > Popularité 
+        <div tabindex = "0"  role= "button" aria-haspopup="listbox" aria-expanded id="current-option" > Popularité 
         <i aria-label="ouvrir" title="ouvrir" class="fa fa-angle-down"></i></div>
         <div role= "listbox" aria-selected aria-activedescendant class="list-option"> 
-          <div role="button" class="index-option" id="list-option-popularity"> Popularité
+          <div tabindex = "0" role="button" class="index-option" id="list-option-popularity"> Popularité
           <i aria-label="fermer" title="fermer" class="fa fa-angle-up"></i> 
         </div> 
           <hr/>
-          <div class="index-option" role="button" id="list-option-date">Date</div>
+          <div tabindex = "1" class="index-option" role="button" id="list-option-date">Date</div>
           <hr/>
-         <div class="index-option" role= "button"  id="list-option-title">Titre</div>
+         <div tabindex = "2" class="index-option" role= "button"  id="list-option-title">Titre</div>
       </div>
      </div>
     </label>`;

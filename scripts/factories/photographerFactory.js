@@ -42,6 +42,7 @@ function photographerFactory(data) {
   img.classList.add("photograph-header__picture")
   img.setAttribute("src", picture)
   img.setAttribute("alt", name)
+  
   const profileDiv = document.createElement('div');
   profileDiv.classList.add('photograph-header__profile');
 
@@ -49,17 +50,19 @@ function photographerFactory(data) {
   const h1 = document.createElement( 'h1' );
   h1.textContent = name;
   h1.classList.add("photograph-header__name");
+  h1.setAttribute("tabindex", "0")
+
 
   // ville et pays du profile
   const locationSpan = document.createElement( 'div' );
   locationSpan.textContent = city + ', ' + country;
   locationSpan.classList.add("photograph-header__location");
-
+  
   //  tagline du profile
   const taglineSpan = document.createElement( 'div' );
   taglineSpan.textContent = tagline;
   taglineSpan.classList.add("photograph-header__tagline");
-
+  
   //  boutton de contact
   const contactButton = document.createElement('button');
   contactButton.textContent = 'Contactez-moi';
@@ -92,6 +95,7 @@ function getFooterDOM(){
   // baniere dom
   const baniere = document.createElement('div'); 
   baniere.classList.add("photograph-baniere__div");
+  baniere.setAttribute("tabindex", "0")
 
   const totalLikes = document.createElement('span')
   totalLikes.classList.add("total-likes");
