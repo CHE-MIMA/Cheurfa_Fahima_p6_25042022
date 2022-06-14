@@ -5,7 +5,7 @@ const urlParams = new URLSearchParams(queryString);
  
  async function getPhotographers(data) {
     // remplacement par les données récupérées dans le json
-    await fetch("http://127.0.0.1:5500/data/photographers.json")
+    await fetch("http://127.0.0.1:5501/data/photographers.json")
 .then(function(response) {
      if (response.ok) {
          return response.json();
@@ -92,7 +92,7 @@ async function init() {
     displayProfil(myProfilePhotographer);
     displayFooter(myProfilePhotographer);
     displayMedia(medias);
-    displayLightbox(medias); 
+    displayLightbox(medias,0); // affiche la lightbox sans filtre (code 0)
     
     displaySort(medias);
    let currentOption = document.getElementById("current-option")
@@ -169,21 +169,21 @@ async function init() {
          
           medias.sort((a, b) => (a.likes < b.likes) ? 1 : -1);
         displayMedia(medias);
-         displayLightbox(medias);
+        displayLightbox(medias,1); // affiche la lightbox avec filtre likes (code 1)
         //  listenHeart();
       } 
          function sortdate(medias){
           medias.sort((a, b) => (a.date < b.date) ? 1 : -1);
           
           displayLightbox(medias);
-          displayMedia(medias);
+          displayLightbox(medias,2); // affiche la lightbox avec filtre dates (code 2)
           
           
     }
           function sorttitle(medias){
           medias.sort((a, b) => (a.title > b.title) ? 1 : -1)
           displayMedia(medias);
-          displayLightbox(medias);
+          displayLightbox(medias,3); // affiche la lightbox avec filtre titres (code 3)
           
           }
 };

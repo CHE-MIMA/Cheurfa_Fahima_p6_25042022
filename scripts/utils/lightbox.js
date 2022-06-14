@@ -1,5 +1,16 @@
-function createLightbox(medias){
-const mediaList =  medias;
+function createLightbox(medias,codeFiltre){
+        //const mediaList = medias;
+        let mediaList;
+        switch (codeFiltre){
+            case "1": mediaList = medias.sort((a, b) => (a.likes < b.likes) ? 1 : -1);
+            break;
+            case "2": mediaList = medias.sort((a, b) => (a.date < b.date) ? 1 : -1);
+            break;
+            case "3": mediaList = medias.sort((a, b) => (a.title > b.title) ? 1 : -1);
+            break;
+            default: mediaList = medias;
+            break;
+        }     
 currentElement = null;
 manageEvent();
 function show(id){
@@ -13,6 +24,7 @@ function next(){
         currentElement = mediaList[0];
     }
     else{
+        console.log("hello");
         currentElement =  mediaList[index + 1];
     }
    
@@ -48,21 +60,20 @@ document.querySelector("#lightbox_bg").addEventListener("click", (e)=>{
 });
    
   
-document.addEventListener("keyup",(e)=>{
-    console.log(e.key);
-    switch(e.key){
-        case "ArrowRight":
-        next();
-        break;
-        
-        case "ArrowLeft":
-        previous(); 
-        break;
-        case "Escape":
-            close();
-            break;
-    }
-});
+// document.addEventListener("keyup",(e)=>{
+//     console.log(e.key);
+//     switch(e.key){
+//         case "ArrowRight":
+//         next();
+//         break;
+//         case "ArrowLeft":
+//         previous(); 
+//         break;
+//         case "Escape":
+//             close();
+//             break;
+//     }
+// });
 }
 
 function getElementById(id){
@@ -109,6 +120,6 @@ function display(){
 function close(){
     document.querySelector("#lightbox_bg").style.display = 'none';  
 }
-return {mediaList, show, next, previous, manageEvent,getElementById,display,close}
+return {mediaList, show,manageEvent,getElementById,display,close}
 }
  
