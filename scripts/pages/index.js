@@ -3,7 +3,7 @@
 async function getPhotographers(photographers) {
     // remplacement par les données récupérées dans le json
     
-    await fetch("http://127.0.0.1:5501/data/photographers.json")
+    await fetch("http://127.0.0.1:5500/data/photographers.json")
 
 .then(function(response) {
      if (response.ok) {

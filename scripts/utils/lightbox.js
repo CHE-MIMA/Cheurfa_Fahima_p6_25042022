@@ -60,20 +60,20 @@ document.querySelector("#lightbox_bg").addEventListener("click", (e)=>{
 });
    
   
-// document.addEventListener("keyup",(e)=>{
-//     console.log(e.key);
-//     switch(e.key){
-//         case "ArrowRight":
-//         next();
-//         break;
-//         case "ArrowLeft":
-//         previous(); 
-//         break;
-//         case "Escape":
-//             close();
-//             break;
-//     }
-// });
+document.addEventListener("keyup",(e)=>{
+    console.log(e.key);
+    switch(e.key){
+        case "ArrowRight":
+        next();
+        break;
+        case "ArrowLeft":
+        previous(); 
+        break;
+        case "Escape":
+            close();
+            break;
+    }
+});
 }
 
 function getElementById(id){
