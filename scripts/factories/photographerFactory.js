@@ -1,7 +1,7 @@
 function photographerFactory(data) {
     const { name, id, city, country, price, portrait, tagline } = data;
     const picture = `assets/photographers/${portrait}`;
-
+   
     function getUserCardDOM() {
         const article = document.createElement('article');
         article.setAttribute("aria-label", name)
@@ -42,15 +42,15 @@ function photographerFactory(data) {
   img.classList.add("photograph-header__picture")
   img.setAttribute("src", picture)
   img.setAttribute("alt", name)
-  
+  img.setAttribute("tabindex", "3")
   const profileDiv = document.createElement('div');
   profileDiv.classList.add('photograph-header__profile');
-
+  
   // nom du  profile
   const h1 = document.createElement( 'h1' );
   h1.textContent = name;
   h1.classList.add("photograph-header__name");
-  h1.setAttribute("tabindex", "0")
+  h1.setAttribute("tabindex", "1")
 
 
   // ville et pays du profile
@@ -68,15 +68,24 @@ function photographerFactory(data) {
   contactButton.textContent = 'Contactez-moi';
   contactButton.classList.add("contact_button");
   contactButton.setAttribute("id", "contact-button")
+  contactButton.setAttribute("tabindex", "2");
   contactButton.setAttribute("aria-label", `Contactez moi`)
   contactButton.addEventListener('click', function(){
     displayModalContact();
+  });
+  contactButton.addEventListener('keydown', function(){
+    switch(e.key) {
+      case "Enter":
+        displayModalContact();
+      break;
+  }
+    
   });
  // Creation nom dans la modal de contact
 const textContact = document.querySelector('.modal-contact_title');
 
 function createInfoModal(){
-    let infoModalHTML = `<p class="modal-contact_title"> Contactez-moi <br> ${name}</p>`;
+    let infoModalHTML = `<p  class="modal-contact_title"> Contactez-moi <br> ${name}</p>`;
     return infoModalHTML; 
 };
 textContact.innerHTML = createInfoModal(); 
@@ -95,7 +104,7 @@ function getFooterDOM(){
   // baniere dom
   const baniere = document.createElement('div'); 
   baniere.classList.add("photograph-baniere__div");
-  baniere.setAttribute("tabindex", "0")
+  baniere.setAttribute("tabindex", "4")
 
   const totalLikes = document.createElement('span')
   totalLikes.classList.add("total-likes");
@@ -107,6 +116,8 @@ function getFooterDOM(){
   heart.classList.add("fas");
   heart.classList.add("fa-heart");
   heart.classList.add("photograph-baniere__heart");
+  heart.setAttribute("aria-label", "likes");
+  heart.setAttribute("title", "likes");
   baniere.appendChild(heart);
   // baniere prix dom
   const priceBaniere = document.createElement ('h2');

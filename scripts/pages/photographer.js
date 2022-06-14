@@ -69,9 +69,9 @@ async function displayLightbox(medias){
                     functionLightbox.show(e.currentTarget.dataset.id);
                 break;
             }
-            // functionLightbox.show(e.currentTarget.dataset.id)});
         });
-});
+      });
+     
 }
 
 async function init() {
@@ -103,6 +103,14 @@ async function init() {
      listOption.style.display = 'flex';
      currentOption.style.display = 'none';
      });
+     currentOption.addEventListener("keydown",(e)=>{
+        switch(e.key) {
+            case "Enter":
+                listOption.style.display = 'flex';
+                currentOption.style.display = 'none';
+            break;
+        }
+    });
      
        listOptionPopularity.addEventListener('click', ()=>{
         listOption.style.display = 'none';
@@ -110,6 +118,16 @@ async function init() {
          currentOption.innerHTML = "Popularité";
          sortlikes(medias); 
        });
+       listOptionPopularity.addEventListener("keydown",(e)=>{
+        switch(e.key) {
+            case "Enter":
+                listOption.style.display = 'none';
+                currentOption.style.display = 'flex';
+                currentOption.innerHTML = "Popularité";
+                sortlikes(medias); 
+            break;
+        }
+    });
 
        let  listOptionDate = document.querySelector("#list-option-date");
        listOptionDate.addEventListener('click', ()=>{
@@ -119,6 +137,16 @@ async function init() {
 
         sortdate(medias);
       });
+      listOptionDate.addEventListener("keydown",(e)=>{
+        switch(e.key) {
+            case "Enter":
+                listOption.style.display = 'none';
+                currentOption.style.display = 'flex';
+                currentOption.innerHTML = "Date";
+                sortdate(medias); 
+            break;
+        }
+    });
 
        let  listOptionTitle = document.querySelector("#list-option-title"); 
        listOptionTitle.addEventListener('click', ()=>{
@@ -127,17 +155,28 @@ async function init() {
         currentOption.innerHTML = "Title"
         sorttitle(medias);
       });
+      listOptionTitle.addEventListener("keydown",(e)=>{
+        switch(e.key) {
+            case "Enter":
+                listOption.style.display = 'none';
+                currentOption.style.display = 'flex';
+                currentOption.innerHTML = "Title";
+                sorttitle(medias); 
+            break;
+        }
+    });
     function sortlikes(medias){   
          
           medias.sort((a, b) => (a.likes < b.likes) ? 1 : -1);
         displayMedia(medias);
-         displayLightbox(sortlikes());
+         displayLightbox(medias);
         //  listenHeart();
       } 
          function sortdate(medias){
           medias.sort((a, b) => (a.date < b.date) ? 1 : -1);
-          displayMedia(medias);
+          
           displayLightbox(medias);
+          displayMedia(medias);
           
           
     }

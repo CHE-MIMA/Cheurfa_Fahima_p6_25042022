@@ -31,34 +31,40 @@ function previous(){
 function manageEvent(){
 document.querySelector(".lightbox_next").addEventListener("click", ()=>{
 next();
+
 });
 document.querySelector(".lightbox_previous").addEventListener("click", ()=>{
-    previous();   
+    previous();
+    
 });
 document.querySelector(".lightbox_close").addEventListener("click", ()=>{
-    close();   
+    close(); 
+     
 });
 document.querySelector("#lightbox_bg").addEventListener("click", (e)=>{
     if(e.target == e.currentTarget){
         close();
     }
 });
-document.querySelector(".photograph-media").addEventListener("keyup",(e)=>{
+   
+  
+document.addEventListener("keyup",(e)=>{
     console.log(e.key);
     switch(e.key){
-        
         case "ArrowRight":
         next();
         break;
+        
         case "ArrowLeft":
-        previous();
+        previous(); 
         break;
         case "Escape":
             close();
             break;
     }
-}); 
+});
 }
+
 function getElementById(id){
 return medias.find(element => element.id == id); 
 }
@@ -81,15 +87,28 @@ function display(){
         document.querySelector("#lightbox-media-video").style.display = 'block';
         document.querySelector("#lightbox-media-picture").style.display = 'none';
         document.querySelector("#lightbox-media-video").src = video;
-        document.querySelector("#lightbox-media-video").alt =  title;
         // document.querySelector("#lightbox-media-video").setAttribute(controls, "controls");
+        document.querySelector("#lightbox-media-video").setAttribute("type", "video/mp4");
         document.querySelector(".lightbox_title").innerHTML = title;
         }
-    
     document.querySelector("#lightbox_bg").style.display = 'flex';
-    }
+    
+    // document.querySelector(".lightbox_close").addEventListener("keydown",(e)=>{
+    //     switch(e.key){
+    //         case "Enter":
+    //         close();
+    //         break;
+    //     }
+    // });
+    // document.querySelector(".lightbox_close").focus();
+    // document.querySelector(".lightbox_previous").focus();
+    // document.querySelector(".lightbox_next").focus();
+ 
+}
+    
 function close(){
     document.querySelector("#lightbox_bg").style.display = 'none';  
 }
 return {mediaList, show, next, previous, manageEvent,getElementById,display,close}
 }
+ 

@@ -9,6 +9,7 @@ function mediaFactory(media) {
       const mediaCards = document.createElement('div');
       mediaCards.classList.add('media-cards');
       mediaCards.setAttribute("data-id", id);
+     
       // mediaCards.setAttribute("aria-label", `${title} closeup view`);
 
       // média du profil separateur 
@@ -19,17 +20,16 @@ function mediaFactory(media) {
        mediaSplit = document.createElement( 'video' );
       mediaSplit.classList.add("photograph-media__video")
       mediaSplit.setAttribute("src", videos)
-      mediaSplit.setAttribute("autoplay", "false");
-      mediaSplit.setAttribute("aria-label", `${title} closeup view`);
-      mediaSplit.setAttribute("tabindex", "0");
-      // mediaSplit.setAttribute("controls", "controls")
+      // mediaSplit.setAttribute("controls", "controls");
+     mediaSplit.setAttribute("tabindex", "4");
+      mediaSplit.setAttribute("type", "video/mp4");
       }
       else{
        mediaSplit = document.createElement( 'img' );
       mediaSplit.classList.add("photograph-media__picture")
       mediaSplit.setAttribute("src", picture)
       mediaSplit.setAttribute("alt", `${title} closeup view`)
-      mediaSplit.setAttribute("tabindex", "0");
+      mediaSplit.setAttribute("tabindex", "4");
       }
 
       const mediaProfileDiv = document.createElement( 'div' );
@@ -54,7 +54,7 @@ function mediaFactory(media) {
         heart.classList.add("fa-heart");
         heart.setAttribute("aria-label", "likes");
         heart.setAttribute("title", "likes");
-        
+        heart.setAttribute("tabindex", "4")
         // const titleLiks = document.createElement( 'span' );
         // titleLiks.textContent = "likes";
         // titleLiks.classList.add("title_likes");
@@ -81,6 +81,16 @@ function mediaFactory(media) {
        console.log(totalLiks);
        document.querySelector('.total-likes').innerText = totalLiks; 
       });
+      heart.addEventListener("keydown",(e)=>{
+        switch(e.key) {
+            case "Enter":
+              media.likes++
+              liks.textContent =`${media.likes}`;
+              totalLiks++;
+              document.querySelector('.total-likes').innerText = totalLiks; 
+            break;
+        }
+    });
        // calcul total liks
       console.log(likes);
       totalLiks+= likes;
@@ -94,17 +104,17 @@ function mediaFactory(media) {
     function getSortMediaDOM(medias){
       const mediaSort = document.querySelector('.sort-media');
     mediaSort.innerHTML = `<label id="filtres-label" aria-labbeledby="current-option">Trier par
-    <div id="filtres-container"> 
-        <div tabindex = "0"  role= "button" aria-haspopup="listbox" aria-expanded id="current-option" > Popularité 
+    <div id="filtres-container"  role= "listbox"  aria-haspopup="listbox" aria-expanded> 
+        <div tabindex = "3" id="current-option" > Popularité 
         <i aria-label="ouvrir" title="ouvrir" class="fa fa-angle-down"></i></div>
-        <div role= "listbox" aria-selected aria-activedescendant class="list-option"> 
-          <div tabindex = "0" role="button" class="index-option" id="list-option-popularity"> Popularité
+        <div  class="list-option"> 
+          <div tabindex = "4" role="option" aria-selected aria-activedescendant class="index-option" id="list-option-popularity"> Popularité
           <i aria-label="fermer" title="fermer" class="fa fa-angle-up"></i> 
         </div> 
           <hr/>
-          <div tabindex = "1" class="index-option" role="button" id="list-option-date">Date</div>
+          <div  class="index-option"  tabindex = "4"  aria-selected aria-activedescendant  role="option" id="list-option-date">Date</div>
           <hr/>
-         <div tabindex = "2" class="index-option" role= "button"  id="list-option-title">Titre</div>
+         <div class="index-option" tabindex = "4"  aria-selected aria-activedescendant  role= "option"  id="list-option-title">Titre</div>
       </div>
      </div>
     </label>`;

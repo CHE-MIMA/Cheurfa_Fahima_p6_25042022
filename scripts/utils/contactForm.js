@@ -2,43 +2,57 @@ const photographeContact = document.querySelector("#contact_modal");
 photographeContact.innerHTML =`<div for="contact-title" class="modal">
 <header>
   <p class= "modal-contact_title" id="contact-title"> </p>
-  <img id="close-btn" src="assets/icons/close.svg" alt="close modale contact"  />
+  <img tabindex="2" id="close-btn" src="assets/icons/close.svg" alt="close modale contact"  />
 </header>
 <form id="form">
   <div>
-    <label for="first">Prénom</label>
-    <input tabindex ="0" type="text" id="first"/>
+    <label  for="first">Prénom</label>
+    <input  tabindex= "2" type="text" id="first"/>
     <span class="error" id="errorprenom"></span>
     <label for="last">Nom</label>
-    <input type="text" id="last"/>
+    <input tabindex= "2" type="text" id="last"/>
     <span class="error" id="errornom"></span>
-    <label for="email">Email</label>
-    <input type="email" id="email"/>
+    <label   for="email">Email</label>
+    <input tabindex= "2" type="email" id="email"/>
     <span class="error" id="erroremail"></span>
     <label for="message">Votre message</label>
-    <input type="text" id="message"/>
+    <input tabindex= "2" type="text" id="message"/>
     <span class="error" id="errormessage"></span>
   </div>
-  <button id="submit-btn" role="submit" aria-label="envoyer" class="contact_button">Envoyer</button>
+  <button tabindex= "2" id="submit-btn" role="submit" aria-label="envoyer" class="contact_button">Envoyer</button>
 </form>
 </div>`;
 
 document.getElementById('close-btn').addEventListener('click', function(){
 closeModalContact();
 });
-document.addEventListener("keyup", (e)=>{
-  console.log(e.key);
-  switch(e.key){
-      case "Escape":
-         closeModalContact();
-          break; 
-  }
-});
+
 
  function displayModalContact(){
-  photographeContact.style.display ='block'; 
-}; 
+  photographeContact.style.display ='block';
+   let closeButton = document.getElementById('close-btn');
+   closeButton.addEventListener("keydown", (e)=>{
+    console.log(e.key);
+    switch(e.key){
+        case "Enter":
+           closeModalContact();
+            break;
+    }
+  })
+  setTimeout(() => {
+ 
+    closeButton.focus();
+  }, 5000)
 
+};    
+document.addEventListener("keyup",(e)=>{
+  switch(e.key){
+     
+      case "Escape":
+          close();
+          break;
+  }
+});
 function closeModalContact(){
 photographeContact.style.display ='none'; 
 }; 
@@ -55,7 +69,7 @@ const errormessage = document.getElementById('errormessage');
 
     document.getElementById('submit-btn').addEventListener("click", function(event){
     event.preventDefault();
-   
+    
     let champErreur = 0;
     let prenomValue = prenom.value;
     let pattern = /^[a-zA-Z ]+$/i;
@@ -108,7 +122,7 @@ const errormessage = document.getElementById('errormessage');
     document.getElementById('form').reset();
   }
  });
-  
+ document.getElementById('submit-btn').focus();
     
   
 
@@ -116,4 +130,6 @@ const errormessage = document.getElementById('errormessage');
 
   
   
-  
+//  https://www.alsacreations.com/article/lire/570-Histoire-de-tabindex.html#:~:text=La%20touche%20%22tabulation%22%20permet%2C,modifier%20ce%20parcours%20%22naturel%22.
+
+//  <meta itemprop="description" content="Description of the video...">
