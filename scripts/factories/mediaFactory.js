@@ -9,9 +9,7 @@ function mediaFactory(media) {
       const mediaCards = document.createElement('div');
       mediaCards.classList.add('media-cards');
       mediaCards.setAttribute("data-id", id);
-     
-      // mediaCards.setAttribute("aria-label", `${title} closeup view`);
-
+      mediaCards.setAttribute("aria-label", "les médias des photographes")
       // média du profil separateur 
       let mediaSplit = null;
       //  console.log(title);
@@ -21,15 +19,16 @@ function mediaFactory(media) {
       mediaSplit.classList.add("photograph-media__video")
       mediaSplit.setAttribute("src", videos)
       // mediaSplit.setAttribute("controls", "controls");
-     mediaSplit.setAttribute("tabindex", "4");
+      mediaSplit.setAttribute("tabindex", "5");
       mediaSplit.setAttribute("type", "video/mp4");
+      mediaSplit.setAttribute("title", `${title}`)
       }
       else{
        mediaSplit = document.createElement( 'img' );
       mediaSplit.classList.add("photograph-media__picture")
       mediaSplit.setAttribute("src", picture)
-      mediaSplit.setAttribute("alt", `${title} closeup view`)
-      mediaSplit.setAttribute("tabindex", "4");
+      mediaSplit.setAttribute("alt", `${title}`)
+      mediaSplit.setAttribute("tabindex", "5");
       }
 
       const mediaProfileDiv = document.createElement( 'div' );
@@ -39,14 +38,17 @@ function mediaFactory(media) {
       const h2 = document.createElement( 'h2' );
       h2.textContent = title;
       h2.classList.add("photograph-media__title");
-
+      h2.setAttribute("tabindex", "5");
+    
+      
       const mediaProfileDivLiks = document.createElement( 'div' );
       mediaProfileDivLiks.classList.add("photograph-media__div__liks")
+      
       // liks des media
       const liks = document.createElement( 'span' );
       liks.textContent = likes;
       liks.classList.add("photograph-media__liks");
-
+      liks.setAttribute("tabindex", "5");
       // const divLikes = document.createElement('div');
       // divLikes.classList.add("div-likes")
       const  heart = document.createElement('i');
@@ -54,7 +56,8 @@ function mediaFactory(media) {
         heart.classList.add("fa-heart");
         heart.setAttribute("aria-label", "likes");
         heart.setAttribute("title", "likes");
-        heart.setAttribute("tabindex", "4")
+        heart.setAttribute("tabindex", "5")
+        heart.setAttribute("role", "button");
         // const titleLiks = document.createElement( 'span' );
         // titleLiks.textContent = "likes";
         // titleLiks.classList.add("title_likes");
@@ -90,12 +93,17 @@ function mediaFactory(media) {
               document.querySelector('.total-likes').innerText = totalLiks; 
             break;
         }
+        
     });
        // calcul total liks
       console.log(likes);
       totalLiks+= likes;
       console.log(totalLiks);
     }
+    
+      mediaSplit.focus();  
+    
+    heart.focus();
     listenHeart();
       return mediaProfile;
     } 

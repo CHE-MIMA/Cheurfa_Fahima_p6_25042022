@@ -17,20 +17,20 @@
 
       <main id="main">
       <div class="photograph-header"></div>
-      <div class="sort-media"></div>
       <div  id="contact_modal"></div>
+      <div class="sort-media"></div>
      <div  class= "photograph-media"></div>
      <!--lightbox-->
       <div id="lightbox_bg">
        <div class="lightbox_content" aria-label="media closeup view" >
-         <div  aria-label="media précédente" class="lightbox_previous"> &lt;</div>
+         <div tabindex="5"  aria-label="media précédente" class="lightbox_previous"> &lt;</div>
           <div class="lightbox_container">
             <img id="lightbox-media-picture" alt="" class="lightbox-media"></img>
             <video id="lightbox-media-video"  class="lightbox-media" controls="control"></video>
             <div class="lightbox_title"></div> 
           </div> 
-          <div   aria-label="media suivante" class="lightbox_next"> &gt;</div>
-          <div aria-label="fermer" class="lightbox_close"> &#215; </div>  
+          <div   tabindex="5" aria-label="media suivante" class="lightbox_next"> &gt;</div>
+          <div  tabindex="5" aria-label="fermer" class="lightbox_close"> &#215; </div>  
         </div>
       </div> 
      <footer class="photograph-baniere"></footer>
@@ -39,7 +39,6 @@
     <script src="scripts/factories/mediaFactory.js"></script>
     <script src="scripts/pages/photographer.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
-    <script src="scripts/utils/likes.js"></script> 
     <script src="scripts/utils/lightbox.js"></script>
   </body>
 </html>

@@ -58,7 +58,7 @@ async function displaySort(medias) {
 
 async function displayLightbox(medias){
     // await myProfilePhotographer;
-    await medias;
+   
     const functionLightbox = createLightbox(medias);
      document.querySelectorAll(".media-cards").forEach(mediaDom => { mediaDom.addEventListener("click",(e)=>{
         functionLightbox.show(e.currentTarget.dataset.id)});
@@ -69,9 +69,14 @@ async function displayLightbox(medias){
                     functionLightbox.show(e.currentTarget.dataset.id);
                 break;
             }
-        });
+         
       });
-     
+    });
+
+    document.querySelectorAll(".media-cards").focus();
+    document.querySelector(".lightbox_close").focus();
+    document.querySelector(".lightbox_previous").focus();
+    document.querySelector(".lightbox_next").focus(); 
 }
 
 async function init() {
@@ -170,7 +175,7 @@ async function init() {
           medias.sort((a, b) => (a.likes < b.likes) ? 1 : -1);
         displayMedia(medias);
         displayLightbox(medias,1); // affiche la lightbox avec filtre likes (code 1)
-        //  listenHeart();
+    
       } 
          function sortdate(medias){
           medias.sort((a, b) => (a.date < b.date) ? 1 : -1);

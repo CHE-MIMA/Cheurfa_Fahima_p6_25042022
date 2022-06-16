@@ -12,7 +12,7 @@ function createLightbox(medias,codeFiltre){
             break;
         }     
 currentElement = null;
-manageEvent();
+
 function show(id){
     currentElement = getElementById(id);
      console.log(getElementById(id));
@@ -22,9 +22,9 @@ function next(){
     let index = mediaList.findIndex(element => element.id == currentElement.id);
     if(index == mediaList.length-1){
         currentElement = mediaList[0];
+          
     }
     else{
-        console.log("hello");
         currentElement =  mediaList[index + 1];
     }
    
@@ -39,43 +39,7 @@ function previous(){
     }
    
     display();
-}
-function manageEvent(){
-document.querySelector(".lightbox_next").addEventListener("click", ()=>{
-next();
-
-});
-document.querySelector(".lightbox_previous").addEventListener("click", ()=>{
-    previous();
-    
-});
-document.querySelector(".lightbox_close").addEventListener("click", ()=>{
-    close(); 
-     
-});
-document.querySelector("#lightbox_bg").addEventListener("click", (e)=>{
-    if(e.target == e.currentTarget){
-        close();
-    }
-});
-   
-  
-document.addEventListener("keyup",(e)=>{
-    console.log(e.key);
-    switch(e.key){
-        case "ArrowRight":
-        next();
-        break;
-        case "ArrowLeft":
-        previous(); 
-        break;
-        case "Escape":
-            close();
-            break;
-    }
-});
-}
-
+};
 function getElementById(id){
 return medias.find(element => element.id == id); 
 }
@@ -85,7 +49,7 @@ function display(){
     const title = currentElement.title;
    
     // console.log(title);
-      console.log(picture);
+    //   console.log(picture);
     console.log(`${currentElement.image}`)
     if (`${currentElement.image}`!='undefined'){
         document.querySelector("#lightbox-media-picture").style.display = 'block';
@@ -104,22 +68,55 @@ function display(){
         }
     document.querySelector("#lightbox_bg").style.display = 'flex';
     
-    // document.querySelector(".lightbox_close").addEventListener("keydown",(e)=>{
-    //     switch(e.key){
-    //         case "Enter":
+
+document.addEventListener("keyup",(e)=>{
+            switch(e.key){
+                case "ArrowLeft":
+                previous(); 
+                break;
+                case "ArrowRight":
+                    next();
+                    break;
+        }
+     });
+document.querySelector(".lightbox_close").addEventListener("keydown",(e)=>{
+            switch(e.key){
+                case "Enter":
+                close();
+                break;
+                
+            }
+        });
+ }  
+  
+function manageEvent(){
+    document.querySelector(".lightbox_next").addEventListener("click", ()=>{
+    next();
+    
+    });
+    document.querySelector(".lightbox_previous").addEventListener("click", ()=>{
+        previous();
+        
+    });
+    document.querySelector(".lightbox_close").addEventListener("click", ()=>{
+        close(); 
+         
+    });
+    // document.querySelector("#lightbox_bg").addEventListener("click", (e)=>{
+    //     if(e.target == e.currentTarget){
     //         close();
-    //         break;
     //     }
     // });
-    // document.querySelector(".lightbox_close").focus();
-    // document.querySelector(".lightbox_previous").focus();
-    // document.querySelector(".lightbox_next").focus();
- 
-}
     
+    }
+ 
+    manageEvent();
+            
+
+   
 function close(){
     document.querySelector("#lightbox_bg").style.display = 'none';  
 }
-return {mediaList, show,manageEvent,getElementById,display,close}
+ return {mediaList,show,close, getElementById,display,manageEvent}
 }
- 
+

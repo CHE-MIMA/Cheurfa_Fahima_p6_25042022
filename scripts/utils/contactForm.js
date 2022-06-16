@@ -39,17 +39,13 @@ closeModalContact();
             break;
     }
   })
-  setTimeout(() => {
- 
     closeButton.focus();
-  }, 5000)
-
 };    
 document.addEventListener("keyup",(e)=>{
   switch(e.key){
      
       case "Escape":
-          close();
+        closeModalContact();
           break;
   }
 });
@@ -120,6 +116,13 @@ const errormessage = document.getElementById('errormessage');
     console.log(email.value);
     console.log(message.value);
     document.getElementById('form').reset();
+    document.getElementById('submit-btn').addEventListener("keydown", (e)=>{
+      switch(e.key){
+          case "Enter":
+             closeModalContact();
+              break;
+      }
+    });
   }
  });
  document.getElementById('submit-btn').focus();
@@ -132,4 +135,3 @@ const errormessage = document.getElementById('errormessage');
   
 //  https://www.alsacreations.com/article/lire/570-Histoire-de-tabindex.html#:~:text=La%20touche%20%22tabulation%22%20permet%2C,modifier%20ce%20parcours%20%22naturel%22.
 
-//  <meta itemprop="description" content="Description of the video...">

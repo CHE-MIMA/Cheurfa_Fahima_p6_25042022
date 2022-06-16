@@ -104,7 +104,7 @@ function getFooterDOM(){
   // baniere dom
   const baniere = document.createElement('div'); 
   baniere.classList.add("photograph-baniere__div");
-  baniere.setAttribute("tabindex", "4")
+  baniere.setAttribute("tabindex", "6")
 
   const totalLikes = document.createElement('span')
   totalLikes.classList.add("total-likes");
