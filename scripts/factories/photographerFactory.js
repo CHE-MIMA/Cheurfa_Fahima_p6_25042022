@@ -15,7 +15,6 @@ function photographerFactory(data) {
         img.setAttribute("alt", `${name}profil`)
         lien.appendChild(img);
       // nom
-      
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
         lien.appendChild(h2);
@@ -37,6 +36,7 @@ function photographerFactory(data) {
 
   function getUserHeaderDOM() {
   const profile = document.createDocumentFragment();
+ 
   // image du profile
   const img = document.createElement( 'img' );
   img.classList.add("photograph-header__picture")
@@ -51,7 +51,6 @@ function photographerFactory(data) {
   h1.textContent = name;
   h1.classList.add("photograph-header__name");
   h1.setAttribute("tabindex", "1")
-
 
   // ville et pays du profile
   const locationSpan = document.createElement( 'div' );
@@ -69,7 +68,11 @@ function photographerFactory(data) {
   contactButton.classList.add("contact_button");
   contactButton.setAttribute("id", "contact-button")
   contactButton.setAttribute("tabindex", "2");
-  contactButton.setAttribute("aria-label", `Contactez moi`)
+  contactButton.setAttribute("aria-label", "Contactez moi")
+  contactButton.setAttribute("role", "button")
+  contactButton.focus();
+
+  // event gère l'ouverture de la modale de contact 
   contactButton.addEventListener('click', function(){
     displayModalContact();
   });
@@ -78,14 +81,13 @@ function photographerFactory(data) {
       case "Enter":
         displayModalContact();
       break;
-  }
-    
+  }  
   });
+
  // Creation nom dans la modal de contact
 const textContact = document.querySelector('.modal-contact_title');
-
 function createInfoModal(){
-    let infoModalHTML = `<p  class="modal-contact_title"> Contactez-moi <br> ${name}</p>`;
+    let infoModalHTML = `<p  class="modal-contact_title" aria-label = "contactez moi"> Contactez-moi <br> ${name}</p>`;
     return infoModalHTML; 
 };
 textContact.innerHTML = createInfoModal(); 
@@ -100,6 +102,7 @@ textContact.innerHTML = createInfoModal();
   return profile 
 }
 
+// fonction affiche la baniere du footer
 function getFooterDOM(){
   // baniere dom
   const baniere = document.createElement('div'); 

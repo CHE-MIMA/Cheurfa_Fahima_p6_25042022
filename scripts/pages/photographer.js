@@ -4,7 +4,6 @@ const urlParams = new URLSearchParams(queryString);
  const idPhotographer = urlParams.get("id");
  
  async function getPhotographers(data) {
-    // remplacement par les données récupérées dans le json
     await fetch("http://127.0.0.1:5500/data/photographers.json")
 .then(function(response) {
      if (response.ok) {
@@ -36,8 +35,7 @@ async function displayProfil(myProfilePhotographer) {
     photographBaniere.appendChild(userFooterDOM);
     }; 
 
-async function displayMedia(medias) {
-    
+function displayMedia(medias) {
     const photographersMedia = document.querySelector(".photograph-media");
     photographersMedia.innerHTML="";
     totalLiks = 0; 
@@ -45,20 +43,18 @@ async function displayMedia(medias) {
     const photographerModel = mediaFactory(media);
     const userMediaDOM = photographerModel.getUserMediaDOM();
     photographersMedia.appendChild(userMediaDOM);
-    })   
+
+    }) 
 };
-async function displaySort(medias) {
-    // const mediaSort = document.querySelector(".sort-media");
-    
+
+function displaySort(medias) {
      medias.forEach((media) => {
      const photographerModel = mediaFactory(media);
      photographerModel.getSortMediaDOM(medias);   
 });       
 };
 
-async function displayLightbox(medias){
-    // await myProfilePhotographer;
-   
+function displayLightbox(medias){
     const functionLightbox = createLightbox(medias);
      document.querySelectorAll(".media-cards").forEach(mediaDom => { mediaDom.addEventListener("click",(e)=>{
         functionLightbox.show(e.currentTarget.dataset.id)});
@@ -69,14 +65,11 @@ async function displayLightbox(medias){
                     functionLightbox.show(e.currentTarget.dataset.id);
                 break;
             }
-         
+            document.querySelector(".lightbox_close").focus();
+            document.querySelector(".lightbox_next").focus();
+            document.querySelector(".lightbox_previous").focus();
       });
-    });
-
-    document.querySelectorAll(".media-cards").focus();
-    document.querySelector(".lightbox_close").focus();
-    document.querySelector(".lightbox_previous").focus();
-    document.querySelector(".lightbox_next").focus(); 
+    }); 
 }
 
 async function init() {
@@ -97,102 +90,105 @@ async function init() {
     displayProfil(myProfilePhotographer);
     displayFooter(myProfilePhotographer);
     displayMedia(medias);
-    displayLightbox(medias,0); // affiche la lightbox sans filtre (code 0)
-    
     displaySort(medias);
-   let currentOption = document.getElementById("current-option")
-   let listOption = document.querySelector(".list-option")
-   let  listOptionPopularity = document.querySelector("#list-option-popularity")
-    
-   currentOption.addEventListener('click', ()=>{
-     listOption.style.display = 'flex';
-     currentOption.style.display = 'none';
-     });
-     currentOption.addEventListener("keydown",(e)=>{
-        switch(e.key) {
-            case "Enter":
-                listOption.style.display = 'flex';
-                currentOption.style.display = 'none';
-            break;
-        }
-    });
-     
-       listOptionPopularity.addEventListener('click', ()=>{
-        listOption.style.display = 'none';
-         currentOption.style.display = 'flex';
-         currentOption.innerHTML = "Popularité";
-         sortlikes(medias); 
-       });
-       listOptionPopularity.addEventListener("keydown",(e)=>{
-        switch(e.key) {
-            case "Enter":
-                listOption.style.display = 'none';
-                currentOption.style.display = 'flex';
-                currentOption.innerHTML = "Popularité";
-                sortlikes(medias); 
-            break;
-        }
+
+let currentOption = document.getElementById("current-option")
+let listOption = document.querySelector(".list-option")
+let  listOptionPopularity = document.querySelector("#list-option-popularity")
+ 
+// event affiche les option du select
+currentOption.addEventListener('click', ()=>{
+  listOption.style.display = 'flex';
+  currentOption.style.display = 'none';
+  });
+  currentOption.addEventListener("keydown",(e)=>{
+     switch(e.key) {
+         case "Enter":
+             listOption.style.display = 'flex';
+             currentOption.style.display = 'none';
+         break;
+     }
+ });
+
+    listOptionPopularity.addEventListener('click', ()=>{
+     listOption.style.display = 'none';
+      currentOption.style.display = 'flex';
+      currentOption.innerHTML = "Popularité";
+      sortlikes(medias); 
     });
 
-       let  listOptionDate = document.querySelector("#list-option-date");
-       listOptionDate.addEventListener('click', ()=>{
-        listOption.style.display = 'none';
-        currentOption.style.display = 'flex';
-        currentOption.innerHTML = "Date"
+    listOptionPopularity.addEventListener("keydown",(e)=>{
+     switch(e.key) {
+         case "Enter":
+             listOption.style.display = 'none';
+             currentOption.style.display = 'flex';
+             currentOption.innerHTML = "Popularité";
+             sortlikes(medias); 
+         break;
+     }
+ });
 
-        sortdate(medias);
-      });
-      listOptionDate.addEventListener("keydown",(e)=>{
-        switch(e.key) {
-            case "Enter":
-                listOption.style.display = 'none';
-                currentOption.style.display = 'flex';
-                currentOption.innerHTML = "Date";
-                sortdate(medias); 
-            break;
-        }
-    });
+    let  listOptionDate = document.querySelector("#list-option-date");
+    listOptionDate.addEventListener('click', ()=>{
+     listOption.style.display = 'none';
+     currentOption.style.display = 'flex';
+     currentOption.innerHTML = "Date"
+     sortdate(medias);
+   });
 
-       let  listOptionTitle = document.querySelector("#list-option-title"); 
-       listOptionTitle.addEventListener('click', ()=>{
-        listOption.style.display = 'none';
-        currentOption.style.display = 'flex';
-        currentOption.innerHTML = "Title"
-        sorttitle(medias);
-      });
-      listOptionTitle.addEventListener("keydown",(e)=>{
-        switch(e.key) {
-            case "Enter":
-                listOption.style.display = 'none';
-                currentOption.style.display = 'flex';
-                currentOption.innerHTML = "Title";
-                sorttitle(medias); 
-            break;
-        }
-    });
-    function sortlikes(medias){   
-         
-          medias.sort((a, b) => (a.likes < b.likes) ? 1 : -1);
-        displayMedia(medias);
-        displayLightbox(medias,1); // affiche la lightbox avec filtre likes (code 1)
-    
-      } 
-         function sortdate(medias){
-          medias.sort((a, b) => (a.date < b.date) ? 1 : -1);
-          
-          displayLightbox(medias);
-          displayLightbox(medias,2); // affiche la lightbox avec filtre dates (code 2)
-          
-          
-    }
-          function sorttitle(medias){
-          medias.sort((a, b) => (a.title > b.title) ? 1 : -1)
-          displayMedia(medias);
-          displayLightbox(medias,3); // affiche la lightbox avec filtre titres (code 3)
-          
-          }
+   listOptionDate.addEventListener("keydown",(e)=>{
+     switch(e.key) {
+         case "Enter":
+             listOption.style.display = 'none';
+             currentOption.style.display = 'flex';
+             currentOption.innerHTML = "Date";
+             sortdate(medias); 
+         break;
+     }
+ });
+
+    let  listOptionTitle = document.querySelector("#list-option-title"); 
+    listOptionTitle.addEventListener('click', (e)=>{
+        e.preventDefault();
+     listOption.style.display = 'none';
+     currentOption.style.display = 'flex';
+     currentOption.innerHTML = "Titre"
+     sorttitle(medias);
+   });
+   listOptionTitle.addEventListener("keydown",(e)=>{
+     switch(e.key) {
+         case "Enter":
+             listOption.style.display = 'none';
+             currentOption.style.display = 'flex';
+             currentOption.innerHTML = "Titre";
+             sorttitle(medias); 
+         break;
+     }
+ });
+ 
+//  fonction sort sur les tri des medias
+ function sortlikes(medias){   
+    document.querySelector(".photograph-media").innerHTML = "";
+       medias.sort((a, b) => (a.likes < b.likes) ? 1 : -1);
+     displayMedia(medias);
+     displayLightbox(medias,1); // affiche la lightbox avec filtre likes (code 1)
+   } 
+      function sortdate(medias){
+        document.querySelector(".photograph-media").innerHTML = "";
+       medias.sort((a, b) => (a.date < b.date) ? 1 : -1);
+       displayMedia(medias);
+      
+    displayLightbox(medias,2); // affiche la lightbox avec filtre dates (code 2)      
+ }
+       function sorttitle(medias){
+        document.querySelector(".photograph-media").innerHTML = "";
+       medias.sort((a, b) => (a.title > b.title) ? 1 : -1)
+       displayMedia(medias);
+    displayLightbox(medias,3); // affiche la lightbox avec filtre titres (code 3) 
+       }
+  displayLightbox(medias,0); 
 };
 init();
 
 
-
+    

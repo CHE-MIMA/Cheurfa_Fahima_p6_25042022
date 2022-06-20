@@ -11,30 +11,34 @@
   <body>
     <header>
       <a tabindex= "1" href="http://127.0.0.1:5500/index.html">
-        <img  src="assets/images/logo.png" alt="Fisheye Home Page"  class="logo">
+        <img  src="assets/images/logo.png" alt="Fisheye Home Page"  id="lienlogo" class="logo">
        </a>
+      
     </header>
-
-      <main id="main">
+    <main id="main">
+        <!--lightbox-->
+        <div id="lightbox_bg" class="lightbox-modal" aria-hidden="false">
+          <div class="lightbox_content" aria-label="medias des photographes" >
+            <div tabindex="5" role="button" aria-label="media précédente" class="lightbox_previous"> &lt;</div>
+             <div class="lightbox_container">
+               <img id="lightbox-media-picture" alt="" class="lightbox-media"></img>
+               <video id="lightbox-media-video"  class="lightbox-media" controls="control"></video>
+               <div class="lightbox_title"></div> 
+             </div> 
+             <div   tabindex="5" role="button" aria-label="media suivante" class="lightbox_next"> &gt;</div>
+             <div  tabindex="5" aria-label="fermer" class="lightbox_close"> &#215; </div>  
+           </div>
+         </div> 
+  
       <div class="photograph-header"></div>
       <div  id="contact_modal"></div>
       <div class="sort-media"></div>
      <div  class= "photograph-media"></div>
-     <!--lightbox-->
-      <div id="lightbox_bg">
-       <div class="lightbox_content" aria-label="media closeup view" >
-         <div tabindex="5"  aria-label="media précédente" class="lightbox_previous"> &lt;</div>
-          <div class="lightbox_container">
-            <img id="lightbox-media-picture" alt="" class="lightbox-media"></img>
-            <video id="lightbox-media-video"  class="lightbox-media" controls="control"></video>
-            <div class="lightbox_title"></div> 
-          </div> 
-          <div   tabindex="5" aria-label="media suivante" class="lightbox_next"> &gt;</div>
-          <div  tabindex="5" aria-label="fermer" class="lightbox_close"> &#215; </div>  
-        </div>
-      </div> 
-     <footer class="photograph-baniere"></footer>
     </main>
+  
+      
+           <footer class="photograph-baniere"></footer>
+         
     <script src="scripts/factories/photographerFactory.js"></script>
     <script src="scripts/factories/mediaFactory.js"></script>
     <script src="scripts/pages/photographer.js"></script>

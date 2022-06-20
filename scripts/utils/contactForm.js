@@ -1,8 +1,9 @@
+// affichage du formulaire
 const photographeContact = document.querySelector("#contact_modal");
 photographeContact.innerHTML =`<div for="contact-title" class="modal">
 <header>
   <p class= "modal-contact_title" id="contact-title"> </p>
-  <img tabindex="2" id="close-btn" src="assets/icons/close.svg" alt="close modale contact"  />
+  <img tabindex="2" id="close-btn" src="assets/icons/close.svg" alt="fermer modale"  />
 </header>
 <form id="form">
   <div>
@@ -22,11 +23,10 @@ photographeContact.innerHTML =`<div for="contact-title" class="modal">
   <button tabindex= "2" id="submit-btn" role="submit" aria-label="envoyer" class="contact_button">Envoyer</button>
 </form>
 </div>`;
-
+// fonction ferme la modale de contact
 document.getElementById('close-btn').addEventListener('click', function(){
 closeModalContact();
 });
-
 
  function displayModalContact(){
   photographeContact.style.display ='block';
@@ -39,11 +39,12 @@ closeModalContact();
             break;
     }
   })
+  setTimeout(()=>{
     closeButton.focus();
+ },5000);
 };    
 document.addEventListener("keyup",(e)=>{
   switch(e.key){
-     
       case "Escape":
         closeModalContact();
           break;
@@ -63,9 +64,9 @@ const erroremail = document.getElementById('erroremail')
 const message = document.getElementById('message');
 const errormessage = document.getElementById('errormessage');
 
+// event gère l'envoi du formulaire  
     document.getElementById('submit-btn').addEventListener("click", function(event){
     event.preventDefault();
-    
     let champErreur = 0;
     let prenomValue = prenom.value;
     let pattern = /^[a-zA-Z ]+$/i;
@@ -133,5 +134,5 @@ const errormessage = document.getElementById('errormessage');
 
   
   
-//  https://www.alsacreations.com/article/lire/570-Histoire-de-tabindex.html#:~:text=La%20touche%20%22tabulation%22%20permet%2C,modifier%20ce%20parcours%20%22naturel%22.
+
 
